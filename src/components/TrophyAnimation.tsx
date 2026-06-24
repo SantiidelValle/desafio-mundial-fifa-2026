@@ -16,8 +16,8 @@ export default function TrophyAnimation({ compact = false, variant }: TrophyAnim
     <motion.div
       className={`relative ${sizeClass} drop-shadow-2xl`}
       aria-label={label}
-      animate={{ y: [0, -8, 0], scale: [1, 1.03, 1] }}
-      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      animate={compact ? undefined : { y: [0, -8, 0], scale: [1, 1.03, 1] }}
+      transition={compact ? undefined : { duration: 4, repeat: Infinity, ease: "easeInOut" }}
     >
       <div className={`relative h-full w-full overflow-hidden ${compact ? "rounded-full bg-white" : "rounded-lg border border-white/20 bg-white/95 shadow-glow"}`}>
         <img
