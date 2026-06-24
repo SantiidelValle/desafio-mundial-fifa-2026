@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { BellOff, BellRing, ChevronLeft, Play } from "lucide-react";
+import { BellOff, BellRing, ChevronLeft, Info, Play } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import DifficultySelector from "./components/DifficultySelector";
 import FinalResult from "./components/FinalResult";
@@ -12,6 +12,7 @@ import ScoreBoard from "./components/ScoreBoard";
 import ThemeToggle from "./components/ThemeToggle";
 import TrophyAnimation from "./components/TrophyAnimation";
 import TriondaBall from "./components/TriondaBall";
+import TopScorers from "./components/TopScorers";
 import AnswerReview from "./components/AnswerReview";
 import matchesData from "./data/matches2026.json";
 import type { Difficulty } from "./types/Difficulty";
@@ -32,7 +33,7 @@ import { getMaxScore } from "./utils/scoring";
 import { sortMatches } from "./utils/sortMatches";
 import { validateMatchAnswer } from "./utils/matchValidator";
 
-type Screen = "home" | "mode" | "game" | "review" | "final" | "answers" | "stats" | "standings";
+type Screen = "home" | "mode" | "game" | "review" | "final" | "answers" | "stats" | "standings" | "scorers";
 
 const rawMatches = matchesData as Match[];
 
@@ -208,6 +209,15 @@ export default function App() {
           <div className="flex items-center gap-2">
             <button
               type="button"
+              onClick={() => setScreen("standings")}
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/25 bg-white/12 text-white shadow-lg transition hover:bg-white/22"
+              title="Ver tablas de grupos"
+              aria-label="Ver tablas de grupos"
+            >
+              <Info size={20} />
+            </button>
+            <button
+              type="button"
               onClick={() => setSoundEnabled((value) => !value)}
               className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/25 bg-white/12 text-white shadow-lg transition hover:bg-white/22"
               title={soundEnabled ? "Desactivar sonidos" : "Activar sonidos"}
@@ -240,10 +250,10 @@ export default function App() {
                   <div className="flex items-center justify-center gap-4 sm:gap-6">
                     <button
                       type="button"
-                      onClick={() => setScreen("standings")}
+                      onClick={() => setScreen("scorers")}
                       className="rounded-full transition hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
-                      title="Ver tablas de grupos"
-                      aria-label="Ver tablas de grupos"
+                      title="Ver tabla de goleadores"
+                      aria-label="Ver tabla de goleadores"
                     >
                       <span className="block sm:hidden">
                         <TriondaBall size={82} />
@@ -324,6 +334,12 @@ export default function App() {
           {screen === "standings" && (
             <motion.main key="standings" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }}>
               <GroupStandings matches={rawMatches} onBack={() => setScreen("home")} />
+            </motion.main>
+          )}
+
+          {screen === "scorers" && (
+            <motion.main key="scorers" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }}>
+              <TopScorers matches={rawMatches} onBack={() => setScreen("home")} />
             </motion.main>
           )}
 

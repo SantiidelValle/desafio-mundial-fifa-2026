@@ -133,9 +133,9 @@ export default function GroupStandings({ matches, onBack }: GroupStandingsProps)
       <div className="relative z-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {standings.map(({ group, teams }) => (
           <article key={group} className="overflow-hidden rounded-lg border border-white/18 bg-black shadow-lg">
-            <div className="flex items-center justify-between border-b border-white/12 bg-white px-4 py-3 text-black">
-              <h3 className="text-xl font-black uppercase tracking-normal">{group}</h3>
-              <div className="grid grid-cols-4 gap-2 text-center text-[10px] font-black uppercase text-black/60">
+            <div className="grid grid-cols-[2rem_minmax(0,1fr)_8.5rem] items-center gap-2 border-b border-white/12 bg-white px-3 py-3 text-black sm:grid-cols-[2rem_minmax(0,1fr)_9.2rem]">
+              <h3 className="col-span-2 text-xl font-black uppercase tracking-normal">{group}</h3>
+              <div className="grid grid-cols-4 gap-1 pr-2 text-center text-[10px] font-black uppercase text-black/60">
                 <span>Pts</span>
                 <span>GF</span>
                 <span>GC</span>
@@ -150,7 +150,7 @@ export default function GroupStandings({ matches, onBack }: GroupStandingsProps)
                 return (
                   <div
                     key={team.team}
-                    className="grid min-h-[3.8rem] grid-cols-[2rem_minmax(0,1fr)_9.2rem] items-center gap-2 rounded-lg bg-white text-black shadow"
+                    className="grid min-h-[3.8rem] grid-cols-[2rem_minmax(0,1fr)_8.5rem] items-center gap-2 rounded-lg bg-white text-black shadow sm:grid-cols-[2rem_minmax(0,1fr)_9.2rem]"
                   >
                     <div className="flex h-full items-center justify-center rounded-l-lg bg-black text-sm font-black text-white">
                       {index + 1}

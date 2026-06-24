@@ -1,0 +1,143 @@
+import { ChevronLeft } from "lucide-react";
+import type { Match } from "../types/Match";
+import { getFlagImageUrl } from "../utils/flagImages";
+
+interface TopScorersProps {
+  matches: Match[];
+  onBack: () => void;
+}
+
+interface ScorerRow {
+  player: string;
+  team: string;
+  flag: string;
+  goals: number;
+  minutes: Array<number | string>;
+}
+
+function buildScorers(matches: Match[]) {
+  const teamFlags = new Map<string, string>();
+  const scorers = new Map<string, ScorerRow>();
+
+  for (const match of matches) {
+    teamFlags.set(match.equipoLocal, match.banderaLocal);
+    teamFlags.set(match.equipoVisitante, match.banderaVisitante);
+
+    for (const goal of match.goles) {
+      if (goal.ownGoal) continue;
+
+      const key = `${goal.equipo}|${goal.jugador}`;
+      const scorer = scorers.get(key) ?? {
+        player: goal.jugador,
+        team: goal.equipo,
+        flag: teamFlags.get(goal.equipo) ?? "",
+        goals: 0,
+        minutes: []
+      };
+
+      scorer.goals += 1;
+      scorer.minutes.push(goal.minuto);
+      scorers.set(key, scorer);
+    }
+  }
+
+  return Array.from(scorers.values()).sort((a, b) => {
+    if (b.goals !== a.goals) return b.goals - a.goals;
+    if (a.team !== b.team) return a.team.localeCompare(b.team);
+    return a.player.localeCompare(b.player);
+  });
+}
+
+function formatMinutes(minutes: Array<number | string>) {
+  return minutes.map((minute) => `${minute}'`).join(" · ");
+}
+
+export default function TopScorers({ matches, onBack }: TopScorersProps) {
+  const scorers = buildScorers(matches);
+  const leaderGoals = scorers[0]?.goals ?? 0;
+
+  return (
+    <section className="relative overflow-hidden rounded-lg border border-white/15 bg-black/90 p-4 shadow-stadium sm:p-6">
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_50%_0%,rgba(255,43,8,0.16),transparent_24rem),radial-gradient(circle_at_90%_30%,rgba(0,208,96,0.13),transparent_20rem),radial-gradient(circle_at_18%_75%,rgba(48,79,255,0.2),transparent_22rem)]" />
+
+      <div className="relative z-10 mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <button
+            type="button"
+            onClick={onBack}
+            className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white px-4 py-2 text-sm font-black uppercase text-black transition hover:bg-mundialGold"
+          >
+            <ChevronLeft size={18} />
+            Volver
+          </button>
+          <p className="text-sm font-black uppercase text-mundialGold">Copa Mundial 2026</p>
+          <h2 className="mt-1 text-3xl font-black uppercase leading-none text-white sm:text-5xl">
+            Tabla de goleadores
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3">
+          <div className="rounded-lg border border-white/15 bg-white/10 px-4 py-3 text-left sm:text-right">
+            <p className="text-xs font-black uppercase text-white/60">Goleadores</p>
+            <p className="text-3xl font-black text-white">{scorers.length}</p>
+          </div>
+          <div className="rounded-lg border border-white/15 bg-white/10 px-4 py-3 text-left sm:text-right">
+            <p className="text-xs font-black uppercase text-white/60">Líder</p>
+            <p className="text-3xl font-black text-white">{leaderGoals}</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative z-10 overflow-hidden rounded-lg border border-white/18 bg-black shadow-lg">
+        <div className="grid grid-cols-[2.25rem_minmax(0,1fr)_5.5rem] items-center gap-2 bg-white px-3 py-3 text-[10px] font-black uppercase text-black/60 sm:grid-cols-[2.5rem_minmax(0,1fr)_7rem_9rem]">
+          <span className="text-center">#</span>
+          <span>Jugador</span>
+          <span className="text-center">Goles</span>
+          <span className="hidden text-center sm:block">Minutos</span>
+        </div>
+
+        <div className="space-y-2 p-3">
+          {scorers.map((scorer, index) => {
+            const flagImage = getFlagImageUrl(scorer.team);
+
+            return (
+              <div
+                key={`${scorer.team}-${scorer.player}`}
+                className="grid min-h-[4rem] grid-cols-[2.25rem_minmax(0,1fr)_5.5rem] items-center gap-2 rounded-lg bg-white text-black shadow sm:grid-cols-[2.5rem_minmax(0,1fr)_7rem_9rem]"
+              >
+                <div className="flex h-full items-center justify-center rounded-l-lg bg-black text-sm font-black text-white">
+                  {index + 1}
+                </div>
+
+                <div className="flex min-w-0 items-center gap-3 py-2 pr-1">
+                  {flagImage ? (
+                    <img
+                      src={flagImage}
+                      alt={`Bandera de ${scorer.team}`}
+                      className="h-9 w-14 shrink-0 rounded-sm object-cover"
+                      draggable={false}
+                    />
+                  ) : (
+                    <span className="w-14 shrink-0 text-2xl">{scorer.flag}</span>
+                  )}
+                  <div className="min-w-0">
+                    <p className="truncate text-sm font-black uppercase leading-tight sm:text-base">{scorer.player}</p>
+                    <p className="truncate text-[10px] font-black uppercase text-black/45">{scorer.team}</p>
+                  </div>
+                </div>
+
+                <div className="flex justify-center pr-2">
+                  <span className="min-w-10 rounded bg-black px-2 py-1 text-center text-base font-black text-white">{scorer.goals}</span>
+                </div>
+
+                <p className="hidden truncate pr-3 text-center text-xs font-black text-black/55 sm:block">
+                  {formatMinutes(scorer.minutes)}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
