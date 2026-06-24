@@ -190,11 +190,11 @@ export default function App() {
   return (
     <div className={rootClass}>
       <div className="relative z-10 mx-auto min-h-screen w-full max-w-7xl px-4 py-5 sm:px-6 lg:px-8">
-        <header className="mb-6 flex items-center justify-between gap-3">
+        <header className="mb-6 flex min-h-12 items-center justify-between gap-3">
           <button
             type="button"
             onClick={() => setScreen("home")}
-            className="flex min-w-0 items-center gap-3 text-left"
+            className="fixed left-4 top-4 z-50 flex min-w-0 items-center gap-3 text-left sm:left-6 sm:top-6"
             aria-label="Ir al inicio"
           >
             <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-midnight shadow-glow">
