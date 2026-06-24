@@ -1432,6 +1432,27 @@
   {
     "id": 47,
     "fecha": "2026-06-23",
+    "hora": "19:00",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo L",
+    "equipoLocal": "Panamá",
+    "equipoVisitante": "Croacia",
+    "banderaLocal": "🇵🇦",
+    "banderaVisitante": "🇭🇷",
+    "resultadoLocal": 0,
+    "resultadoVisitante": 1,
+    "estadio": "Toronto Stadium",
+    "goles": [
+      {
+        "equipo": "Croacia",
+        "jugador": "Ante Budimir",
+        "minuto": 54
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "fecha": "2026-06-23",
     "hora": "22:00",
     "fase": "Fase de grupos",
     "grupo": "Grupo K",
