@@ -12,7 +12,6 @@ interface ScorerRow {
   team: string;
   flag: string;
   goals: number;
-  minutes: Array<number | string>;
 }
 
 function buildScorers(matches: Match[]) {
@@ -31,12 +30,10 @@ function buildScorers(matches: Match[]) {
         player: goal.jugador,
         team: goal.equipo,
         flag: teamFlags.get(goal.equipo) ?? "",
-        goals: 0,
-        minutes: []
+        goals: 0
       };
 
       scorer.goals += 1;
-      scorer.minutes.push(goal.minuto);
       scorers.set(key, scorer);
     }
   }
@@ -46,10 +43,6 @@ function buildScorers(matches: Match[]) {
     if (a.team !== b.team) return a.team.localeCompare(b.team);
     return a.player.localeCompare(b.player);
   });
-}
-
-function formatMinutes(minutes: Array<number | string>) {
-  return minutes.map((minute) => `${minute}'`).join(" · ");
 }
 
 export default function TopScorers({ matches, onBack }: TopScorersProps) {
@@ -88,24 +81,23 @@ export default function TopScorers({ matches, onBack }: TopScorersProps) {
         </div>
       </div>
 
-      <div className="relative z-10 overflow-hidden rounded-lg border border-white/18 bg-black shadow-lg">
-        <div className="grid grid-cols-[2.25rem_minmax(0,1fr)_5.5rem] items-center gap-2 bg-white px-3 py-3 text-[10px] font-black uppercase text-black/60 sm:grid-cols-[2.5rem_minmax(0,1fr)_7rem_9rem]">
+      <div className="relative z-10 overflow-hidden rounded-[1.35rem] border border-lime-300/45 bg-black/80 p-2 shadow-lg">
+        <div className="grid grid-cols-[2.25rem_minmax(0,1fr)_5.5rem] items-center gap-2 rounded-t-[1rem] bg-lime-400 px-3 py-2 text-[10px] font-black uppercase text-black/70 sm:grid-cols-[2.5rem_minmax(0,1fr)_7rem]">
           <span className="text-center">#</span>
           <span>Jugador</span>
           <span className="text-center">Goles</span>
-          <span className="hidden text-center sm:block">Minutos</span>
         </div>
 
-        <div className="space-y-2 p-3">
+        <div className="space-y-2 rounded-b-[1rem] bg-white p-2">
           {scorers.map((scorer, index) => {
             const flagImage = getFlagImageUrl(scorer.team);
 
             return (
               <div
                 key={`${scorer.team}-${scorer.player}`}
-                className="grid min-h-[4rem] grid-cols-[2.25rem_minmax(0,1fr)_5.5rem] items-center gap-2 rounded-lg bg-white text-black shadow sm:grid-cols-[2.5rem_minmax(0,1fr)_7rem_9rem]"
+                className="grid min-h-[4rem] grid-cols-[2.25rem_minmax(0,1fr)_5.5rem] items-center gap-2 rounded-[1rem] bg-white text-black shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] sm:grid-cols-[2.5rem_minmax(0,1fr)_7rem]"
               >
-                <div className="flex h-full items-center justify-center rounded-l-lg bg-black text-sm font-black text-white">
+                <div className="flex h-full items-center justify-center rounded-l-[1rem] bg-black text-sm font-black text-white">
                   {index + 1}
                 </div>
 
@@ -114,7 +106,7 @@ export default function TopScorers({ matches, onBack }: TopScorersProps) {
                     <img
                       src={flagImage}
                       alt={`Bandera de ${scorer.team}`}
-                      className="h-9 w-14 shrink-0 rounded-sm object-cover"
+                      className="h-9 w-14 shrink-0 rounded-[0.65rem] object-cover shadow-[inset_0_0_0_1px_rgba(0,0,0,0.14)]"
                       draggable={false}
                     />
                   ) : (
@@ -127,12 +119,8 @@ export default function TopScorers({ matches, onBack }: TopScorersProps) {
                 </div>
 
                 <div className="flex justify-center pr-2">
-                  <span className="min-w-10 rounded bg-black px-2 py-1 text-center text-base font-black text-white">{scorer.goals}</span>
+                  <span className="min-w-10 rounded-[0.65rem] bg-black px-2 py-1 text-center text-base font-black text-white">{scorer.goals}</span>
                 </div>
-
-                <p className="hidden truncate pr-3 text-center text-xs font-black text-black/55 sm:block">
-                  {formatMinutes(scorer.minutes)}
-                </p>
               </div>
             );
           })}

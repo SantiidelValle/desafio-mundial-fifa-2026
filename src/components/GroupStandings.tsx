@@ -132,10 +132,10 @@ export default function GroupStandings({ matches, onBack }: GroupStandingsProps)
 
       <div className="relative z-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {standings.map(({ group, teams }) => (
-          <article key={group} className="overflow-hidden rounded-lg border border-white/18 bg-black shadow-lg">
-            <div className="grid grid-cols-[2rem_minmax(0,1fr)_8.5rem] items-center gap-2 border-b border-white/12 bg-white px-3 py-3 text-black sm:grid-cols-[2rem_minmax(0,1fr)_9.2rem]">
-              <h3 className="col-span-2 text-xl font-black uppercase tracking-normal">{group}</h3>
-              <div className="grid grid-cols-4 gap-1 pr-2 text-center text-[10px] font-black uppercase text-black/60">
+          <article key={group} className="overflow-hidden rounded-[1.35rem] border border-lime-300/45 bg-black/80 p-2 shadow-lg">
+            <div className="grid grid-cols-[2rem_minmax(0,1fr)_8.5rem] items-center gap-2 rounded-t-[1rem] bg-lime-400 px-3 py-2 text-black sm:grid-cols-[2rem_minmax(0,1fr)_9.2rem]">
+              <h3 className="col-span-2 text-lg font-black uppercase tracking-normal">{group}</h3>
+              <div className="grid grid-cols-4 gap-1 pr-2 text-center text-[10px] font-black uppercase text-black/70">
                 <span>Pts</span>
                 <span>GF</span>
                 <span>GC</span>
@@ -143,16 +143,16 @@ export default function GroupStandings({ matches, onBack }: GroupStandingsProps)
               </div>
             </div>
 
-            <div className="space-y-2 p-3">
+            <div className="space-y-2 rounded-b-[1rem] bg-white p-2">
               {teams.map((team, index) => {
                 const flagImage = getFlagImageUrl(team.team);
 
                 return (
                   <div
                     key={team.team}
-                    className="grid min-h-[3.8rem] grid-cols-[2rem_minmax(0,1fr)_8.5rem] items-center gap-2 rounded-lg bg-white text-black shadow sm:grid-cols-[2rem_minmax(0,1fr)_9.2rem]"
+                    className="grid min-h-[3.65rem] grid-cols-[2rem_minmax(0,1fr)_8.5rem] items-center gap-2 rounded-[1rem] bg-white text-black shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] sm:grid-cols-[2rem_minmax(0,1fr)_9.2rem]"
                   >
-                    <div className="flex h-full items-center justify-center rounded-l-lg bg-black text-sm font-black text-white">
+                    <div className="flex h-full items-center justify-center rounded-l-[1rem] bg-black text-sm font-black text-white">
                       {index + 1}
                     </div>
 
@@ -161,7 +161,7 @@ export default function GroupStandings({ matches, onBack }: GroupStandingsProps)
                         <img
                           src={flagImage}
                           alt={`Bandera de ${team.team}`}
-                          className="h-8 w-12 shrink-0 rounded-sm object-cover"
+                          className="h-8 w-12 shrink-0 rounded-[0.55rem] object-cover shadow-[inset_0_0_0_1px_rgba(0,0,0,0.14)]"
                           draggable={false}
                         />
                       ) : (
@@ -176,10 +176,10 @@ export default function GroupStandings({ matches, onBack }: GroupStandingsProps)
                     </div>
 
                     <div className="grid grid-cols-4 gap-1 pr-2 text-center text-sm font-black">
-                      <span className="rounded bg-black px-1.5 py-1 text-white">{team.points}</span>
-                      <span className="rounded bg-black/8 px-1.5 py-1">{team.goalsFor}</span>
-                      <span className="rounded bg-black/8 px-1.5 py-1">{team.goalsAgainst}</span>
-                      <span className="rounded bg-black/8 px-1.5 py-1">{formatGoalDifference(team.goalDifference)}</span>
+                      <span className="rounded-[0.55rem] bg-black px-1.5 py-1 text-white">{team.points}</span>
+                      <span className="rounded-[0.55rem] bg-black/8 px-1.5 py-1">{team.goalsFor}</span>
+                      <span className="rounded-[0.55rem] bg-black/8 px-1.5 py-1">{team.goalsAgainst}</span>
+                      <span className="rounded-[0.55rem] bg-black/8 px-1.5 py-1">{formatGoalDifference(team.goalDifference)}</span>
                     </div>
                   </div>
                 );
