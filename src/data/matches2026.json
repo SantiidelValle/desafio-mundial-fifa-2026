@@ -41,17 +41,17 @@
     "goles": [
       {
         "equipo": "Chequia",
-        "jugador": "Patrik Schick",
-        "minuto": 60
+        "jugador": "Ladislav Krejci",
+        "minuto": 59
       },
       {
         "equipo": "Corea del Sur",
-        "jugador": "Son Heung-min",
+        "jugador": "Hwang Inbeom",
         "minuto": 67
       },
       {
         "equipo": "Corea del Sur",
-        "jugador": "Lee Kang-in",
+        "jugador": "Oh Hyeongyu",
         "minuto": 80
       }
     ]
@@ -98,29 +98,29 @@
     "goles": [
       {
         "equipo": "Estados Unidos",
-        "jugador": "Gio Reyna",
-        "minuto": 16
-      },
-      {
-        "equipo": "Estados Unidos",
-        "jugador": "Folarin Balogun",
-        "minuto": 33
-      },
-      {
-        "equipo": "Estados Unidos",
-        "jugador": "Gustavo Gómez",
-        "minuto": 51,
+        "jugador": "Damian Bobadilla",
+        "minuto": 7,
         "ownGoal": true
       },
       {
-        "equipo": "Paraguay",
-        "jugador": "Miguel Almirón",
-        "minuto": 68
+        "equipo": "Estados Unidos",
+        "jugador": "Folarin Balogun",
+        "minuto": 31
       },
       {
         "equipo": "Estados Unidos",
         "jugador": "Folarin Balogun",
-        "minuto": 84
+        "minuto": "45+5"
+      },
+      {
+        "equipo": "Paraguay",
+        "jugador": "Mauricio",
+        "minuto": 73
+      },
+      {
+        "equipo": "Estados Unidos",
+        "jugador": "Giovanni Reyna",
+        "minuto": "90+8"
       }
     ]
   },
@@ -141,7 +141,7 @@
       {
         "equipo": "Suiza",
         "jugador": "Breel Embolo",
-        "minuto": 42
+        "minuto": 17
       },
       {
         "equipo": "Qatar",
@@ -166,14 +166,14 @@
     "estadio": "New York New Jersey Stadium",
     "goles": [
       {
-        "equipo": "Brasil",
-        "jugador": "Vinícius Júnior",
-        "minuto": 31
+        "equipo": "Marruecos",
+        "jugador": "Ismael Saibari",
+        "minuto": 21
       },
       {
-        "equipo": "Marruecos",
-        "jugador": "Youssef En-Nesyri",
-        "minuto": 72
+        "equipo": "Brasil",
+        "jugador": "Vinicius Junior",
+        "minuto": 32
       }
     ]
   },
@@ -215,7 +215,7 @@
       {
         "equipo": "Australia",
         "jugador": "Nestory Irankunda",
-        "minuto": 42
+        "minuto": 27
       },
       {
         "equipo": "Australia",
@@ -240,42 +240,42 @@
     "goles": [
       {
         "equipo": "Alemania",
-        "jugador": "Jamal Musiala",
-        "minuto": 8
+        "jugador": "Felix Nmecha",
+        "minuto": 6
+      },
+      {
+        "equipo": "Curazao",
+        "jugador": "Livano Comenencia",
+        "minuto": 21
+      },
+      {
+        "equipo": "Alemania",
+        "jugador": "Nico Schlotterbeck",
+        "minuto": 38
       },
       {
         "equipo": "Alemania",
         "jugador": "Kai Havertz",
-        "minuto": 19
-      },
-      {
-        "equipo": "Alemania",
-        "jugador": "Florian Wirtz",
-        "minuto": 27
-      },
-      {
-        "equipo": "Curazao",
-        "jugador": "Leandro Bacuna",
-        "minuto": 34
+        "minuto": "45+5"
       },
       {
         "equipo": "Alemania",
         "jugador": "Jamal Musiala",
-        "minuto": 48
+        "minuto": 47
+      },
+      {
+        "equipo": "Alemania",
+        "jugador": "Nathaniel Brown",
+        "minuto": 68
       },
       {
         "equipo": "Alemania",
         "jugador": "Deniz Undav",
-        "minuto": 62
+        "minuto": 78
       },
       {
         "equipo": "Alemania",
-        "jugador": "Joshua Kimmich",
-        "minuto": 74
-      },
-      {
-        "equipo": "Alemania",
-        "jugador": "Niclas Füllkrug",
+        "jugador": "Kai Havertz",
         "minuto": 88
       }
     ]
@@ -296,23 +296,23 @@
     "goles": [
       {
         "equipo": "Países Bajos",
-        "jugador": "Cody Gakpo",
-        "minuto": 18
+        "jugador": "Virgil Van Dijk",
+        "minuto": 50
       },
       {
         "equipo": "Japón",
-        "jugador": "Kaoru Mitoma",
-        "minuto": 37
+        "jugador": "Keito Nakamura",
+        "minuto": 57
       },
       {
         "equipo": "Países Bajos",
-        "jugador": "Memphis Depay",
-        "minuto": 61
+        "jugador": "Crysencio Summerville",
+        "minuto": 64
       },
       {
         "equipo": "Japón",
-        "jugador": "Takumi Minamino",
-        "minuto": 79
+        "jugador": "Daichi Kamada",
+        "minuto": 88
       }
     ]
   },
@@ -333,7 +333,7 @@
       {
         "equipo": "Costa de Marfil",
         "jugador": "Amad Diallo",
-        "minuto": 86
+        "minuto": 90
       }
     ]
   },
@@ -353,33 +353,33 @@
     "goles": [
       {
         "equipo": "Suecia",
-        "jugador": "Alexander Isak",
-        "minuto": 12
+        "jugador": "Yasin Ayari",
+        "minuto": 7
       },
       {
         "equipo": "Suecia",
-        "jugador": "Viktor Gyökeres",
-        "minuto": 26
+        "jugador": "Alexander Isak",
+        "minuto": 30
       },
       {
         "equipo": "Túnez",
-        "jugador": "Elias Saad",
-        "minuto": 38
+        "jugador": "Omar Rekik",
+        "minuto": 43
       },
       {
         "equipo": "Suecia",
-        "jugador": "Yasin Ayari",
-        "minuto": 54
+        "jugador": "Viktor Gyokeres",
+        "minuto": 59
       },
       {
         "equipo": "Suecia",
         "jugador": "Mattias Svanberg",
-        "minuto": 70
+        "minuto": 84
       },
       {
         "equipo": "Suecia",
-        "jugador": "Viktor Gyökeres",
-        "minuto": 82
+        "jugador": "Yasin Ayari",
+        "minuto": "90+6"
       }
     ]
   },
@@ -414,13 +414,14 @@
     "goles": [
       {
         "equipo": "Egipto",
-        "jugador": "Mohamed Salah",
-        "minuto": 36
+        "jugador": "Emam Ashour",
+        "minuto": 19
       },
       {
         "equipo": "Bélgica",
-        "jugador": "Kevin De Bruyne",
-        "minuto": 63
+        "jugador": "Mohamed Hany",
+        "minuto": 66,
+        "ownGoal": true
       }
     ]
   },
@@ -439,14 +440,14 @@
     "estadio": "Miami Stadium",
     "goles": [
       {
-        "equipo": "Uruguay",
-        "jugador": "Darwin Núñez",
-        "minuto": 24
+        "equipo": "Arabia Saudita",
+        "jugador": "Abdulelah Alamri",
+        "minuto": 41
       },
       {
-        "equipo": "Arabia Saudita",
-        "jugador": "Salem Al-Dawsari",
-        "minuto": 58
+        "equipo": "Uruguay",
+        "jugador": "Maxi Araujo",
+        "minuto": 80
       }
     ]
   },
@@ -466,23 +467,23 @@
     "goles": [
       {
         "equipo": "Nueva Zelanda",
-        "jugador": "Chris Wood",
-        "minuto": 11
+        "jugador": "Elijah Just",
+        "minuto": 7
       },
       {
         "equipo": "Irán",
-        "jugador": "Mehdi Taremi",
-        "minuto": 29
-      },
-      {
-        "equipo": "Irán",
-        "jugador": "Sardar Azmoun",
-        "minuto": 57
+        "jugador": "Ramin Rezaeian",
+        "minuto": 32
       },
       {
         "equipo": "Nueva Zelanda",
-        "jugador": "Matthew Garbett",
-        "minuto": 81
+        "jugador": "Elijah Just",
+        "minuto": 54
+      },
+      {
+        "equipo": "Irán",
+        "jugador": "Mohammad Mohebbi",
+        "minuto": 64
       }
     ]
   },
@@ -502,23 +503,23 @@
     "goles": [
       {
         "equipo": "Francia",
-        "jugador": "Kylian Mbappé",
-        "minuto": 49
+        "jugador": "Kylian Mbappe",
+        "minuto": 66
+      },
+      {
+        "equipo": "Francia",
+        "jugador": "Bradley Barcola",
+        "minuto": 82
       },
       {
         "equipo": "Senegal",
-        "jugador": "Ismaïla Sarr",
-        "minuto": 56
+        "jugador": "Ibrahim Mbaye",
+        "minuto": "90+5"
       },
       {
         "equipo": "Francia",
-        "jugador": "Michael Olise",
-        "minuto": 71
-      },
-      {
-        "equipo": "Francia",
-        "jugador": "Kylian Mbappé",
-        "minuto": 84
+        "jugador": "Kylian Mbappe",
+        "minuto": "90+6"
       }
     ]
   },
@@ -539,27 +540,28 @@
       {
         "equipo": "Noruega",
         "jugador": "Erling Haaland",
-        "minuto": 18
+        "minuto": 29
       },
       {
         "equipo": "Irak",
         "jugador": "Aymen Hussein",
-        "minuto": 35
-      },
-      {
-        "equipo": "Noruega",
-        "jugador": "Martin Ødegaard",
-        "minuto": 51
+        "minuto": 39
       },
       {
         "equipo": "Noruega",
         "jugador": "Erling Haaland",
-        "minuto": 66
+        "minuto": 43
       },
       {
         "equipo": "Noruega",
-        "jugador": "Alexander Sørloth",
-        "minuto": 89
+        "jugador": "Leo Ostigard",
+        "minuto": 76
+      },
+      {
+        "equipo": "Noruega",
+        "jugador": "Aymen Hussein",
+        "minuto": "90+6",
+        "ownGoal": true
       }
     ]
   },
@@ -585,12 +587,12 @@
       {
         "equipo": "Argentina",
         "jugador": "Lionel Messi",
-        "minuto": 55
+        "minuto": 60
       },
       {
         "equipo": "Argentina",
         "jugador": "Lionel Messi",
-        "minuto": 78
+        "minuto": 76
       }
     ]
   },
@@ -610,23 +612,24 @@
     "goles": [
       {
         "equipo": "Austria",
-        "jugador": "Marko Arnautovic",
-        "minuto": 14
+        "jugador": "Romano Schmid",
+        "minuto": 20
       },
       {
         "equipo": "Jordania",
-        "jugador": "Mousa Al-Taamari",
-        "minuto": 41
+        "jugador": "Ali Olwan",
+        "minuto": 50
       },
       {
         "equipo": "Austria",
-        "jugador": "Christoph Baumgartner",
-        "minuto": 59
+        "jugador": "Yazan Alarab",
+        "minuto": 76,
+        "ownGoal": true
       },
       {
         "equipo": "Austria",
-        "jugador": "Marcel Sabitzer",
-        "minuto": 76
+        "jugador": "Marko Arnautovic",
+        "minuto": "90+12"
       }
     ]
   },
@@ -646,13 +649,13 @@
     "goles": [
       {
         "equipo": "Portugal",
-        "jugador": "João Félix",
-        "minuto": 12
+        "jugador": "Joao Neves",
+        "minuto": 6
       },
       {
         "equipo": "RD Congo",
         "jugador": "Yoane Wissa",
-        "minuto": 54
+        "minuto": "45+5"
       }
     ]
   },
@@ -673,32 +676,32 @@
       {
         "equipo": "Inglaterra",
         "jugador": "Harry Kane",
-        "minuto": 10
+        "minuto": 12
       },
       {
         "equipo": "Croacia",
-        "jugador": "Andrej Kramaric",
-        "minuto": 25
+        "jugador": "Martin Baturina",
+        "minuto": 36
       },
       {
         "equipo": "Inglaterra",
         "jugador": "Harry Kane",
-        "minuto": 38
+        "minuto": 42
+      },
+      {
+        "equipo": "Croacia",
+        "jugador": "Petar Musa",
+        "minuto": "45+5"
       },
       {
         "equipo": "Inglaterra",
         "jugador": "Jude Bellingham",
-        "minuto": 56
-      },
-      {
-        "equipo": "Croacia",
-        "jugador": "Joško Gvardiol",
-        "minuto": 71
+        "minuto": 47
       },
       {
         "equipo": "Inglaterra",
         "jugador": "Marcus Rashford",
-        "minuto": 82
+        "minuto": 85
       }
     ]
   },
@@ -739,23 +742,23 @@
     "goles": [
       {
         "equipo": "Colombia",
-        "jugador": "Luis Díaz",
-        "minuto": 22
-      },
-      {
-        "equipo": "Uzbekistán",
-        "jugador": "Eldor Shomurodov",
+        "jugador": "Daniel Munoz",
         "minuto": 40
       },
       {
-        "equipo": "Colombia",
-        "jugador": "James Rodríguez",
-        "minuto": 64
+        "equipo": "Uzbekistán",
+        "jugador": "Abbosbek Fayzullaev",
+        "minuto": 60
       },
       {
         "equipo": "Colombia",
-        "jugador": "Jhon Durán",
-        "minuto": 88
+        "jugador": "Luis Diaz",
+        "minuto": 65
+      },
+      {
+        "equipo": "Colombia",
+        "jugador": "Jaminton Campaz",
+        "minuto": "90+9"
       }
     ]
   },
@@ -775,8 +778,8 @@
     "goles": [
       {
         "equipo": "Chequia",
-        "jugador": "Michal Sadílek",
-        "minuto": 9
+        "jugador": "Michal Sadilek",
+        "minuto": 6
       },
       {
         "equipo": "Sudáfrica",
@@ -801,28 +804,28 @@
     "goles": [
       {
         "equipo": "Suiza",
-        "jugador": "Breel Embolo",
+        "jugador": "Johan Manzambi",
         "minuto": 74
       },
       {
         "equipo": "Suiza",
-        "jugador": "Granit Xhaka",
-        "minuto": 78
+        "jugador": "Ruben Vargas",
+        "minuto": 84
+      },
+      {
+        "equipo": "Suiza",
+        "jugador": "Johan Manzambi",
+        "minuto": 90
       },
       {
         "equipo": "Bosnia y Herzegovina",
-        "jugador": "Edin Dzeko",
-        "minuto": 82
-      },
-      {
-        "equipo": "Suiza",
-        "jugador": "Zeki Amdouni",
-        "minuto": 87
-      },
-      {
-        "equipo": "Suiza",
-        "jugador": "Noah Okafor",
+        "jugador": "Ermin Mahmic",
         "minuto": "90+3"
+      },
+      {
+        "equipo": "Suiza",
+        "jugador": "Granit Xhaka",
+        "minuto": "90+7"
       }
     ]
   },
@@ -842,8 +845,8 @@
     "goles": [
       {
         "equipo": "Canadá",
-        "jugador": "Jonathan David",
-        "minuto": 13
+        "jugador": "Cyle Larin",
+        "minuto": 16
       },
       {
         "equipo": "Canadá",
@@ -852,23 +855,24 @@
       },
       {
         "equipo": "Canadá",
-        "jugador": "Alphonso Davies",
-        "minuto": 44
+        "jugador": "Jonathan David",
+        "minuto": "45+3"
       },
       {
         "equipo": "Canadá",
-        "jugador": "Cyle Larin",
-        "minuto": 61
+        "jugador": "Nathan Saliba",
+        "minuto": 64
       },
       {
         "equipo": "Canadá",
-        "jugador": "Tajon Buchanan",
-        "minuto": 73
+        "jugador": "Mohamed Manai",
+        "minuto": 75,
+        "ownGoal": true
       },
       {
         "equipo": "Canadá",
         "jugador": "Jonathan David",
-        "minuto": 85
+        "minuto": "90+2"
       }
     ]
   },
@@ -888,8 +892,8 @@
     "goles": [
       {
         "equipo": "México",
-        "jugador": "Edson Álvarez",
-        "minuto": 64
+        "jugador": "Luis Romo",
+        "minuto": 50
       }
     ]
   },
@@ -909,13 +913,14 @@
     "goles": [
       {
         "equipo": "Estados Unidos",
-        "jugador": "Christian Pulisic",
-        "minuto": 23
+        "jugador": "Cameron Burgess",
+        "minuto": 11,
+        "ownGoal": true
       },
       {
         "equipo": "Estados Unidos",
-        "jugador": "Folarin Balogun",
-        "minuto": 69
+        "jugador": "Alex Freeman",
+        "minuto": 43
       }
     ]
   },
@@ -935,8 +940,8 @@
     "goles": [
       {
         "equipo": "Marruecos",
-        "jugador": "Achraf Hakimi",
-        "minuto": 52
+        "jugador": "Ismael Saibari",
+        "minuto": 2
       }
     ]
   },
@@ -956,18 +961,18 @@
     "goles": [
       {
         "equipo": "Brasil",
-        "jugador": "Vinícius Júnior",
-        "minuto": 18
+        "jugador": "Matheus Cunha",
+        "minuto": 23
       },
       {
         "equipo": "Brasil",
-        "jugador": "Rodrygo",
-        "minuto": 49
+        "jugador": "Matheus Cunha",
+        "minuto": 36
       },
       {
         "equipo": "Brasil",
-        "jugador": "Endrick",
-        "minuto": 77
+        "jugador": "Vinicius Junior",
+        "minuto": "45+3"
       }
     ]
   },
@@ -1008,33 +1013,33 @@
     "goles": [
       {
         "equipo": "Países Bajos",
+        "jugador": "Brian Brobbey",
+        "minuto": 5
+      },
+      {
+        "equipo": "Países Bajos",
+        "jugador": "Brian Brobbey",
+        "minuto": 17
+      },
+      {
+        "equipo": "Países Bajos",
         "jugador": "Cody Gakpo",
-        "minuto": 7
+        "minuto": 47
+      },
+      {
+        "equipo": "Países Bajos",
+        "jugador": "Cody Gakpo",
+        "minuto": 54
       },
       {
         "equipo": "Suecia",
-        "jugador": "Alexander Isak",
-        "minuto": 21
+        "jugador": "Anthony Elanga",
+        "minuto": 59
       },
       {
         "equipo": "Países Bajos",
-        "jugador": "Xavi Simons",
-        "minuto": 35
-      },
-      {
-        "equipo": "Países Bajos",
-        "jugador": "Memphis Depay",
-        "minuto": 51
-      },
-      {
-        "equipo": "Países Bajos",
-        "jugador": "Tijjani Reijnders",
-        "minuto": 72
-      },
-      {
-        "equipo": "Países Bajos",
-        "jugador": "Wout Weghorst",
-        "minuto": 88
+        "jugador": "Crysencio Summerville",
+        "minuto": 89
       }
     ]
   },
@@ -1054,13 +1059,13 @@
     "goles": [
       {
         "equipo": "Costa de Marfil",
-        "jugador": "Amad Diallo",
-        "minuto": 39
+        "jugador": "Franck Kessie",
+        "minuto": 30
       },
       {
         "equipo": "Alemania",
         "jugador": "Deniz Undav",
-        "minuto": 67
+        "minuto": 68
       },
       {
         "equipo": "Alemania",
@@ -1100,23 +1105,23 @@
     "goles": [
       {
         "equipo": "Japón",
-        "jugador": "Takefusa Kubo",
-        "minuto": 15
-      },
-      {
-        "equipo": "Japón",
-        "jugador": "Kaoru Mitoma",
-        "minuto": 43
-      },
-      {
-        "equipo": "Japón",
         "jugador": "Daichi Kamada",
-        "minuto": 58
+        "minuto": 4
       },
       {
         "equipo": "Japón",
-        "jugador": "Takumi Minamino",
-        "minuto": 81
+        "jugador": "Ayase Ueda",
+        "minuto": 31
+      },
+      {
+        "equipo": "Japón",
+        "jugador": "Junya Ito",
+        "minuto": 69
+      },
+      {
+        "equipo": "Japón",
+        "jugador": "Ayase Ueda",
+        "minuto": 83
       }
     ]
   },
@@ -1136,23 +1141,24 @@
     "goles": [
       {
         "equipo": "España",
-        "jugador": "Mikel Oyarzabal",
-        "minuto": 22
-      },
-      {
-        "equipo": "España",
         "jugador": "Lamine Yamal",
-        "minuto": 41
-      },
-      {
-        "equipo": "España",
-        "jugador": "Pedri",
-        "minuto": 63
+        "minuto": 10
       },
       {
         "equipo": "España",
         "jugador": "Mikel Oyarzabal",
-        "minuto": 79
+        "minuto": 21
+      },
+      {
+        "equipo": "España",
+        "jugador": "Mikel Oyarzabal",
+        "minuto": 24
+      },
+      {
+        "equipo": "España",
+        "jugador": "Hassan Altambakti",
+        "minuto": 49,
+        "ownGoal": true
       }
     ]
   },
@@ -1186,24 +1192,24 @@
     "estadio": "Miami Stadium",
     "goles": [
       {
-        "equipo": "Uruguay",
-        "jugador": "Federico Valverde",
-        "minuto": 14
-      },
-      {
         "equipo": "Cabo Verde",
-        "jugador": "Ryan Mendes",
-        "minuto": 34
+        "jugador": "Kevin Pina",
+        "minuto": 21
       },
       {
         "equipo": "Uruguay",
-        "jugador": "Darwin Núñez",
-        "minuto": 55
+        "jugador": "Maxi Araujo",
+        "minuto": 44
+      },
+      {
+        "equipo": "Uruguay",
+        "jugador": "Agustin Canobbio",
+        "minuto": "45+6"
       },
       {
         "equipo": "Cabo Verde",
-        "jugador": "Bebé",
-        "minuto": 83
+        "jugador": "Helio Varela",
+        "minuto": 61
       }
     ]
   },
@@ -1223,23 +1229,23 @@
     "goles": [
       {
         "equipo": "Nueva Zelanda",
-        "jugador": "Chris Wood",
-        "minuto": 8
+        "jugador": "Finn Surman",
+        "minuto": 15
+      },
+      {
+        "equipo": "Egipto",
+        "jugador": "Mostafa Zico",
+        "minuto": 58
       },
       {
         "equipo": "Egipto",
         "jugador": "Mohamed Salah",
-        "minuto": 31
-      },
-      {
-        "equipo": "Egipto",
-        "jugador": "Mostafa Mohamed",
         "minuto": 67
       },
       {
         "equipo": "Egipto",
         "jugador": "Trezeguet",
-        "minuto": 86
+        "minuto": 82
       }
     ]
   },
@@ -1260,12 +1266,12 @@
       {
         "equipo": "Argentina",
         "jugador": "Lionel Messi",
-        "minuto": 44
+        "minuto": 38
       },
       {
         "equipo": "Argentina",
         "jugador": "Lionel Messi",
-        "minuto": 73
+        "minuto": "90+5"
       }
     ]
   },
@@ -1285,18 +1291,18 @@
     "goles": [
       {
         "equipo": "Francia",
-        "jugador": "Kylian Mbappé",
-        "minuto": 22
+        "jugador": "Kylian Mbappe",
+        "minuto": 14
+      },
+      {
+        "equipo": "Francia",
+        "jugador": "Kylian Mbappe",
+        "minuto": 54
       },
       {
         "equipo": "Francia",
         "jugador": "Ousmane Dembélé",
         "minuto": 66
-      },
-      {
-        "equipo": "Francia",
-        "jugador": "Kylian Mbappé",
-        "minuto": 88
       }
     ]
   },
@@ -1317,27 +1323,27 @@
       {
         "equipo": "Noruega",
         "jugador": "Marcus Holmgren Pedersen",
-        "minuto": 16
-      },
-      {
-        "equipo": "Senegal",
-        "jugador": "Ismaïla Sarr",
-        "minuto": 33
+        "minuto": 43
       },
       {
         "equipo": "Noruega",
         "jugador": "Erling Haaland",
-        "minuto": 50
+        "minuto": 48
+      },
+      {
+        "equipo": "Senegal",
+        "jugador": "Ismaila Sarr",
+        "minuto": 53
       },
       {
         "equipo": "Noruega",
         "jugador": "Erling Haaland",
-        "minuto": 68
+        "minuto": 58
       },
       {
         "equipo": "Senegal",
-        "jugador": "Ismaïla Sarr",
-        "minuto": 86
+        "jugador": "Ismaila Sarr",
+        "minuto": "90+3"
       }
     ]
   },
@@ -1357,18 +1363,18 @@
     "goles": [
       {
         "equipo": "Jordania",
-        "jugador": "Mousa Al-Taamari",
-        "minuto": 27
+        "jugador": "Nizar Alrashdan",
+        "minuto": 36
       },
       {
         "equipo": "Argelia",
-        "jugador": "Riyad Mahrez",
-        "minuto": 63
+        "jugador": "Nadhir Benbouali",
+        "minuto": 69
       },
       {
         "equipo": "Argelia",
-        "jugador": "Mohamed Amoura",
-        "minuto": 79
+        "jugador": "Amine Gouiri",
+        "minuto": 82
       }
     ]
   },
@@ -1389,12 +1395,12 @@
       {
         "equipo": "Portugal",
         "jugador": "Cristiano Ronaldo",
-        "minuto": 11
+        "minuto": 6
       },
       {
         "equipo": "Portugal",
         "jugador": "Nuno Mendes",
-        "minuto": 24
+        "minuto": 17
       },
       {
         "equipo": "Portugal",
@@ -1403,14 +1409,14 @@
       },
       {
         "equipo": "Portugal",
-        "jugador": "Rafa Leão",
-        "minuto": 55
+        "jugador": "Abduvohid Nematov",
+        "minuto": 60,
+        "ownGoal": true
       },
       {
         "equipo": "Portugal",
-        "jugador": "Abdukodir Khusanov",
-        "minuto": 72,
-        "ownGoal": true
+        "jugador": "Rafael Leao",
+        "minuto": 87
       }
     ]
   },
