@@ -35,72 +35,103 @@ const roundOf32Matches: BracketMatch[] = [
   { id: 88, slots: [{ code: "2D" }, { code: "2G" }] }
 ];
 
-function SeedRow({ slot }: { slot: KnockoutSlot }) {
+const roundOf32ById = new Map(roundOf32Matches.map((match) => [match.id, match]));
+
+function getRoundOf32Match(id: number) {
+  const match = roundOf32ById.get(id);
+  if (!match) throw new Error(`Missing match ${id}`);
+  return match;
+}
+
+function winner(code: number): KnockoutSlot {
+  return { code: `G${code}` };
+}
+
+const leftRoundOf32 = [74, 77, 73, 75, 83, 84, 81, 82].map(getRoundOf32Match);
+const rightRoundOf32 = [76, 78, 79, 80, 86, 88, 85, 87].map(getRoundOf32Match);
+
+const leftRoundOf16: BracketMatch[] = [
+  { id: 89, slots: [winner(74), winner(77)] },
+  { id: 90, slots: [winner(73), winner(75)] },
+  { id: 93, slots: [winner(83), winner(84)] },
+  { id: 94, slots: [winner(81), winner(82)] }
+];
+
+const rightRoundOf16: BracketMatch[] = [
+  { id: 91, slots: [winner(76), winner(78)] },
+  { id: 92, slots: [winner(79), winner(80)] },
+  { id: 95, slots: [winner(86), winner(88)] },
+  { id: 96, slots: [winner(85), winner(87)] }
+];
+
+const leftQuarterFinals: BracketMatch[] = [
+  { id: 97, slots: [winner(89), winner(90)] },
+  { id: 98, slots: [winner(93), winner(94)] }
+];
+
+const rightQuarterFinals: BracketMatch[] = [
+  { id: 99, slots: [winner(91), winner(92)] },
+  { id: 100, slots: [winner(95), winner(96)] }
+];
+
+const leftSemiFinal: BracketMatch[] = [{ id: 101, slots: [winner(97), winner(98)] }];
+const rightSemiFinal: BracketMatch[] = [{ id: 102, slots: [winner(99), winner(100)] }];
+const finalMatch: BracketMatch = { id: 104, slots: [winner(101), winner(102)] };
+
+function SlotBox({ slot }: { slot: KnockoutSlot }) {
   const flagImage = slot.team ? getFlagImageUrl(slot.team) : null;
 
   return (
-    <div className="grid h-8 grid-cols-[2.35rem_minmax(0,1fr)] overflow-hidden rounded-[0.25rem] border border-white/18 bg-white text-black shadow-sm">
-      <div className="flex h-full items-center justify-center overflow-hidden bg-black">
-        {flagImage ? (
-          <img src={flagImage} alt={`Bandera de ${slot.team}`} className="h-full w-full object-cover" draggable={false} />
-        ) : (
-          <span className="text-[10px] font-black text-white">{slot.code[0]}</span>
-        )}
-      </div>
-      <div className="flex min-w-0 items-center px-2">
-        <span className="truncate text-[11px] font-black uppercase leading-none sm:text-xs">{slot.team ?? slot.code}</span>
+    <div
+      className="flex h-7 w-14 items-center justify-center overflow-hidden rounded-[0.25rem] border border-white/20 bg-black/40 text-[9px] font-black uppercase text-white shadow-sm"
+      title={slot.team ?? slot.code}
+    >
+      {flagImage ? <img src={flagImage} alt={`Bandera de ${slot.team}`} className="h-full w-full object-cover" draggable={false} /> : slot.code}
+    </div>
+  );
+}
+
+function MatchBox({ match }: { match: BracketMatch }) {
+  return (
+    <article className="flex flex-col items-center gap-1" aria-label={`Partido ${match.id}`}>
+      {match.slots.map((slot) => (
+        <SlotBox key={`${match.id}-${slot.code}`} slot={slot} />
+      ))}
+    </article>
+  );
+}
+
+function BracketColumn({ label, matches }: { label: string; matches: BracketMatch[] }) {
+  return (
+    <div className="flex h-full min-w-0 flex-col">
+      <p className="mb-2 text-center text-[10px] font-black uppercase text-white/50">{label}</p>
+      <div className="flex min-h-0 flex-1 flex-col items-center justify-around">
+        {matches.map((match) => (
+          <MatchBox key={match.id} match={match} />
+        ))}
       </div>
     </div>
   );
 }
 
-function EmptyBox() {
-  return <div className="h-7 w-9 rounded-[0.22rem] border-2 border-white/55 bg-black/35 shadow-[0_0_0_1px_rgba(0,0,0,0.28)]" />;
-}
-
-function MiniMatch({ match, side }: { match: BracketMatch; side: "left" | "right" }) {
-  const isLeft = side === "left";
-
+function FinalColumn() {
   return (
-    <article className={`relative grid items-center gap-2 ${isLeft ? "grid-cols-[minmax(0,1fr)_2.25rem]" : "grid-cols-[2.25rem_minmax(0,1fr)]"}`}>
-      {isLeft ? (
-        <>
-          <div className="grid gap-1">
-            {match.slots.map((slot) => (
-              <SeedRow key={slot.code} slot={slot} />
-            ))}
-          </div>
-          <EmptyBox />
-        </>
-      ) : (
-        <>
-          <EmptyBox />
-          <div className="grid gap-1">
-            {match.slots.map((slot) => (
-              <SeedRow key={slot.code} slot={slot} />
-            ))}
-          </div>
-        </>
-      )}
-      <span className={`absolute top-1/2 h-px w-3 bg-white/40 ${isLeft ? "right-9" : "left-9"}`} />
-    </article>
-  );
-}
-
-function BracketSide({ matches, side }: { matches: BracketMatch[]; side: "left" | "right" }) {
-  return (
-    <div className="grid gap-3">
-      {matches.map((match) => (
-        <MiniMatch key={match.id} match={match} side={side} />
-      ))}
+    <div className="flex h-full min-w-0 flex-col items-center justify-center gap-4">
+      <img
+        src={trophyImage}
+        alt="Trofeo de la Copa Mundial"
+        className="h-40 w-auto object-contain drop-shadow-[0_18px_28px_rgba(245,188,66,0.32)]"
+        draggable={false}
+      />
+      <div>
+        <p className="mb-2 text-center text-[10px] font-black uppercase text-mundialGold">Final</p>
+        <MatchBox match={finalMatch} />
+      </div>
     </div>
   );
 }
 
 export default function KnockoutStage({ matches: _matches }: KnockoutStageProps) {
-  const leftMatches = roundOf32Matches.slice(0, 8);
-  const rightMatches = roundOf32Matches.slice(8);
-
   return (
     <div className="relative z-10 overflow-hidden rounded-lg border border-white/12 bg-[#160020] px-3 py-5 shadow-glow sm:px-5">
       <div className="mb-5 text-center">
@@ -108,19 +139,18 @@ export default function KnockoutStage({ matches: _matches }: KnockoutStageProps)
         <h3 className="mt-1 text-3xl font-black uppercase leading-none text-white sm:text-4xl">World Cup Bracket</h3>
       </div>
 
-      <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_10rem_minmax(0,1fr)] lg:items-center xl:grid-cols-[minmax(0,1fr)_12rem_minmax(0,1fr)]">
-        <BracketSide matches={leftMatches} side="left" />
-
-        <div className="order-first flex justify-center lg:order-none">
-          <img
-            src={trophyImage}
-            alt="Trofeo de la Copa Mundial"
-            className="h-40 w-auto object-contain drop-shadow-[0_18px_28px_rgba(245,188,66,0.32)] sm:h-48 lg:h-56"
-            draggable={false}
-          />
+      <div className="overflow-x-auto pb-2">
+        <div className="mx-auto grid h-[42rem] min-w-[920px] max-w-[1060px] grid-cols-[4rem_4rem_4rem_4rem_10rem_4rem_4rem_4rem_4rem] gap-3">
+          <BracketColumn label="32" matches={leftRoundOf32} />
+          <BracketColumn label="16" matches={leftRoundOf16} />
+          <BracketColumn label="8" matches={leftQuarterFinals} />
+          <BracketColumn label="4" matches={leftSemiFinal} />
+          <FinalColumn />
+          <BracketColumn label="4" matches={rightSemiFinal} />
+          <BracketColumn label="8" matches={rightQuarterFinals} />
+          <BracketColumn label="16" matches={rightRoundOf16} />
+          <BracketColumn label="32" matches={rightRoundOf32} />
         </div>
-
-        <BracketSide matches={rightMatches} side="right" />
       </div>
     </div>
   );
