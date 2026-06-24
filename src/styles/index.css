@@ -176,7 +176,7 @@ select {
 }
 
 .flag-wedge {
-  border-radius: inherit;
+  border-radius: 0.28rem 0 0 0.28rem;
 }
 
 @media (max-width: 780px) {

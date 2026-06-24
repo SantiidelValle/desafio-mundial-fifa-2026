@@ -95,7 +95,7 @@ export default function TopScorers({ matches, onBack }: TopScorersProps) {
             return (
               <div
                 key={`${scorer.team}-${scorer.player}`}
-                className="grid min-h-[3.15rem] grid-cols-[2.25rem_4rem_minmax(0,1fr)_5.5rem] items-stretch overflow-hidden rounded-r-[1.2rem] rounded-l-[0.4rem] bg-white text-black shadow-[0_1px_0_rgba(255,255,255,0.55),inset_0_0_0_1px_rgba(0,0,0,0.08)] sm:grid-cols-[2.5rem_4.25rem_minmax(0,1fr)_7rem]"
+                className="grid h-12 grid-cols-[2.25rem_4.2rem_minmax(0,1fr)_5.5rem] items-stretch overflow-hidden rounded-l-[0.28rem] rounded-r-[0.95rem] bg-white text-black shadow-[0_1px_0_rgba(255,255,255,0.55),inset_0_0_0_1px_rgba(0,0,0,0.08)] sm:grid-cols-[2.5rem_4.5rem_minmax(0,1fr)_7rem]"
               >
                 <div className="flex h-full items-center justify-center bg-black text-sm font-black text-white">
                   {index + 1}
@@ -124,7 +124,7 @@ export default function TopScorers({ matches, onBack }: TopScorersProps) {
                 </div>
 
                 <div className="flex justify-center pr-2">
-                  <span className="min-w-10 rounded-[0.45rem] bg-black px-2 py-1 text-center text-base font-black text-white">{scorer.goals}</span>
+                  <span className="inline-flex h-8 min-w-10 items-center justify-center rounded-[0.48rem] bg-black px-2 text-center text-base font-black text-white">{scorer.goals}</span>
                 </div>
               </div>
             );

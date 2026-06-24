@@ -150,9 +150,9 @@ export default function GroupStandings({ matches, onBack }: GroupStandingsProps)
                 return (
                   <div
                     key={team.team}
-                    className="grid min-h-[2.85rem] grid-cols-[3.75rem_minmax(0,1fr)_7.7rem] items-stretch overflow-hidden rounded-r-[1.2rem] rounded-l-[0.55rem] bg-white text-black shadow-[0_1px_0_rgba(255,255,255,0.55),inset_0_0_0_1px_rgba(0,0,0,0.08)] sm:grid-cols-[4rem_minmax(0,1fr)_8.5rem]"
+                    className="grid h-10 grid-cols-[3.85rem_minmax(0,1fr)_7.5rem] items-stretch overflow-hidden rounded-l-[0.28rem] rounded-r-[0.95rem] bg-white text-black shadow-[0_1px_0_rgba(255,255,255,0.55),inset_0_0_0_1px_rgba(0,0,0,0.08)] sm:grid-cols-[4rem_minmax(0,1fr)_8.2rem]"
                   >
-                    <div className="h-full overflow-hidden rounded-l-[0.55rem] bg-black/5">
+                    <div className="h-full overflow-hidden bg-black/5">
                       <div className="flag-wedge h-full w-full overflow-hidden shadow-[inset_0_0_0_1px_rgba(0,0,0,0.12)]">
                         {flagImage ? (
                           <img
@@ -167,7 +167,7 @@ export default function GroupStandings({ matches, onBack }: GroupStandingsProps)
                       </div>
                     </div>
 
-                    <div className="flex min-w-0 items-center py-1 pl-2 pr-1">
+                    <div className="flex min-w-0 items-center py-0.5 pl-2 pr-1">
                       <div className="min-w-0">
                         <p className="truncate text-xs font-black uppercase leading-tight sm:text-sm">{team.team}</p>
                         <p className="truncate text-[8px] font-black uppercase text-black/45 sm:text-[9px]">
@@ -176,11 +176,11 @@ export default function GroupStandings({ matches, onBack }: GroupStandingsProps)
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-4 gap-1 pr-2 text-center text-xs font-black sm:text-sm">
-                      <span className="rounded-[0.45rem] bg-black px-1 py-0.5 text-white">{team.points}</span>
-                      <span className="rounded-[0.45rem] bg-black/8 px-1 py-0.5">{team.goalsFor}</span>
-                      <span className="rounded-[0.45rem] bg-black/8 px-1 py-0.5">{team.goalsAgainst}</span>
-                      <span className="rounded-[0.45rem] bg-black/8 px-1 py-0.5">{formatGoalDifference(team.goalDifference)}</span>
+                    <div className="grid grid-cols-4 items-center gap-1 pr-2 text-center text-xs font-black sm:text-sm">
+                      <span className="inline-flex h-7 items-center justify-center rounded-[0.48rem] bg-black px-1 text-white">{team.points}</span>
+                      <span className="inline-flex h-7 items-center justify-center rounded-[0.48rem] bg-black/8 px-1">{team.goalsFor}</span>
+                      <span className="inline-flex h-7 items-center justify-center rounded-[0.48rem] bg-black/8 px-1">{team.goalsAgainst}</span>
+                      <span className="inline-flex h-7 items-center justify-center rounded-[0.48rem] bg-black/8 px-1">{formatGoalDifference(team.goalDifference)}</span>
                     </div>
                   </div>
                 );
