@@ -175,6 +175,11 @@ select {
   display: none;
 }
 
+.flag-wedge {
+  clip-path: polygon(0 0, calc(100% - 0.55rem) 0, 100% 50%, calc(100% - 0.55rem) 100%, 0 100%);
+  border-radius: 0.55rem 0.12rem 0.12rem 0.55rem;
+}
+
 @media (max-width: 780px) {
   .stadium-bg::before {
     top: -16rem;

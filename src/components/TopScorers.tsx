@@ -101,17 +101,19 @@ export default function TopScorers({ matches, onBack }: TopScorersProps) {
                   {index + 1}
                 </div>
 
-                <div className="h-full overflow-hidden bg-black/5">
-                  {flagImage ? (
-                    <img
-                      src={flagImage}
-                      alt={`Bandera de ${scorer.team}`}
-                      className="h-full w-full object-cover"
-                      draggable={false}
-                    />
-                  ) : (
-                    <span className="flex h-full w-full items-center justify-center text-2xl">{scorer.flag}</span>
-                  )}
+                <div className="flex h-full items-center pl-1">
+                  <div className="flag-wedge h-10 w-full overflow-hidden bg-black/5 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.12)]">
+                    {flagImage ? (
+                      <img
+                        src={flagImage}
+                        alt={`Bandera de ${scorer.team}`}
+                        className="h-full w-full object-cover"
+                        draggable={false}
+                      />
+                    ) : (
+                      <span className="flex h-full w-full items-center justify-center text-2xl">{scorer.flag}</span>
+                    )}
+                  </div>
                 </div>
 
                 <div className="flex min-w-0 items-center py-1 pl-2 pr-1">

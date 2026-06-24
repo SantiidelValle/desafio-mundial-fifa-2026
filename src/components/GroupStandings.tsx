@@ -144,29 +144,27 @@ export default function GroupStandings({ matches, onBack }: GroupStandingsProps)
             </div>
 
             <div className="space-y-1.5">
-              {teams.map((team, index) => {
+              {teams.map((team) => {
                 const flagImage = getFlagImageUrl(team.team);
 
                 return (
                   <div
                     key={team.team}
-                    className="grid min-h-[2.85rem] grid-cols-[1.8rem_3.4rem_minmax(0,1fr)_7.7rem] items-center overflow-hidden rounded-r-[1.2rem] rounded-l-[0.4rem] bg-white text-black shadow-[0_1px_0_rgba(255,255,255,0.55),inset_0_0_0_1px_rgba(0,0,0,0.08)] sm:grid-cols-[1.8rem_3.6rem_minmax(0,1fr)_8.5rem]"
+                    className="grid min-h-[2.85rem] grid-cols-[3.65rem_minmax(0,1fr)_7.7rem] items-center rounded-[1.2rem] bg-white text-black shadow-[0_1px_0_rgba(255,255,255,0.55),inset_0_0_0_1px_rgba(0,0,0,0.08)] sm:grid-cols-[3.85rem_minmax(0,1fr)_8.5rem]"
                   >
-                    <div className="flex h-full items-center justify-center bg-black text-sm font-black text-white">
-                      {index + 1}
-                    </div>
-
-                    <div className="h-full overflow-hidden bg-black/5">
-                      {flagImage ? (
-                        <img
-                          src={flagImage}
-                          alt={`Bandera de ${team.team}`}
-                          className="h-full w-full object-cover"
-                          draggable={false}
-                        />
-                      ) : (
-                        <span className="flex h-full w-full items-center justify-center text-2xl">{team.flag}</span>
-                      )}
+                    <div className="flex h-full items-center pl-1">
+                      <div className="flag-wedge h-8 w-full overflow-hidden bg-black/5 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.12)]">
+                        {flagImage ? (
+                          <img
+                            src={flagImage}
+                            alt={`Bandera de ${team.team}`}
+                            className="h-full w-full object-cover"
+                            draggable={false}
+                          />
+                        ) : (
+                          <span className="flex h-full w-full items-center justify-center text-2xl">{team.flag}</span>
+                        )}
+                      </div>
                     </div>
 
                     <div className="flex min-w-0 items-center py-1 pl-2 pr-1">
