@@ -206,24 +206,24 @@ export default function App() {
             </span>
           </button>
 
-          <div className="flex items-center gap-2">
+          <div className="fixed right-4 top-4 z-50 flex items-center gap-2 sm:right-6 sm:top-6 sm:gap-3">
             <button
               type="button"
               onClick={() => setScreen("standings")}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/25 bg-white/12 text-white shadow-lg transition hover:bg-white/22"
+              className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/25 bg-white/12 text-white shadow-lg backdrop-blur-md transition hover:bg-white/22"
               title="Ver tablas de grupos"
               aria-label="Ver tablas de grupos"
             >
-              <Info size={20} />
+              <Info size={22} />
             </button>
             <button
               type="button"
               onClick={() => setSoundEnabled((value) => !value)}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/25 bg-white/12 text-white shadow-lg transition hover:bg-white/22"
+              className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/25 bg-white/12 text-white shadow-lg backdrop-blur-md transition hover:bg-white/22"
               title={soundEnabled ? "Desactivar sonidos" : "Activar sonidos"}
               aria-label={soundEnabled ? "Desactivar sonidos" : "Activar sonidos"}
             >
-              {soundEnabled ? <BellRing size={20} /> : <BellOff size={20} />}
+              {soundEnabled ? <BellRing size={22} /> : <BellOff size={22} />}
             </button>
             <ThemeToggle themeMode={themeMode} onToggle={() => setThemeMode((value) => (value === "dark" ? "light" : "dark"))} />
           </div>
