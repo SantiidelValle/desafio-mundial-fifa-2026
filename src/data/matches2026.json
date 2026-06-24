@@ -1428,5 +1428,26 @@
     "resultadoVisitante": 0,
     "estadio": "Boston Stadium",
     "goles": []
+  },
+  {
+    "id": 47,
+    "fecha": "2026-06-23",
+    "hora": "22:00",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo K",
+    "equipoLocal": "Colombia",
+    "equipoVisitante": "RD Congo",
+    "banderaLocal": "🇨🇴",
+    "banderaVisitante": "🇨🇩",
+    "resultadoLocal": 1,
+    "resultadoVisitante": 0,
+    "estadio": "Guadalajara Stadium",
+    "goles": [
+      {
+        "equipo": "Colombia",
+        "jugador": "Daniel Muñoz",
+        "minuto": 76
+      }
+    ]
   }
 ]
