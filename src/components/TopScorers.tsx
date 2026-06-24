@@ -81,45 +81,48 @@ export default function TopScorers({ matches, onBack }: TopScorersProps) {
         </div>
       </div>
 
-      <div className="relative z-10 overflow-hidden rounded-[1.35rem] border border-lime-300/45 bg-black/80 p-2 shadow-lg">
-        <div className="grid grid-cols-[2.25rem_minmax(0,1fr)_5.5rem] items-center gap-2 rounded-t-[1rem] bg-lime-400 px-3 py-2 text-[10px] font-black uppercase text-black/70 sm:grid-cols-[2.5rem_minmax(0,1fr)_7rem]">
+      <div className="relative z-10 mx-auto max-w-4xl rounded-[1rem] bg-black/20 p-1">
+        <div className="mb-1 grid grid-cols-[2.25rem_minmax(0,1fr)_5.5rem] items-end gap-2 px-1 text-[10px] font-black uppercase text-white/70 sm:grid-cols-[2.5rem_minmax(0,1fr)_7rem]">
           <span className="text-center">#</span>
           <span>Jugador</span>
           <span className="text-center">Goles</span>
         </div>
 
-        <div className="space-y-2 rounded-b-[1rem] bg-white p-2">
+        <div className="space-y-1.5">
           {scorers.map((scorer, index) => {
             const flagImage = getFlagImageUrl(scorer.team);
 
             return (
               <div
                 key={`${scorer.team}-${scorer.player}`}
-                className="grid min-h-[4rem] grid-cols-[2.25rem_minmax(0,1fr)_5.5rem] items-center gap-2 rounded-[1rem] bg-white text-black shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] sm:grid-cols-[2.5rem_minmax(0,1fr)_7rem]"
+                className="grid min-h-[3.15rem] grid-cols-[2.25rem_3.7rem_minmax(0,1fr)_5.5rem] items-center overflow-hidden rounded-r-[1.2rem] rounded-l-[0.4rem] bg-white text-black shadow-[0_1px_0_rgba(255,255,255,0.55),inset_0_0_0_1px_rgba(0,0,0,0.08)] sm:grid-cols-[2.5rem_4rem_minmax(0,1fr)_7rem]"
               >
-                <div className="flex h-full items-center justify-center rounded-l-[1rem] bg-black text-sm font-black text-white">
+                <div className="flex h-full items-center justify-center bg-black text-sm font-black text-white">
                   {index + 1}
                 </div>
 
-                <div className="flex min-w-0 items-center gap-3 py-2 pr-1">
+                <div className="h-full overflow-hidden bg-black/5">
                   {flagImage ? (
                     <img
                       src={flagImage}
                       alt={`Bandera de ${scorer.team}`}
-                      className="h-9 w-14 shrink-0 rounded-[0.65rem] object-cover shadow-[inset_0_0_0_1px_rgba(0,0,0,0.14)]"
+                      className="h-full w-full object-cover"
                       draggable={false}
                     />
                   ) : (
-                    <span className="w-14 shrink-0 text-2xl">{scorer.flag}</span>
+                    <span className="flex h-full w-full items-center justify-center text-2xl">{scorer.flag}</span>
                   )}
+                </div>
+
+                <div className="flex min-w-0 items-center py-1 pl-2 pr-1">
                   <div className="min-w-0">
-                    <p className="truncate text-sm font-black uppercase leading-tight sm:text-base">{scorer.player}</p>
+                    <p className="truncate text-xs font-black uppercase leading-tight sm:text-sm">{scorer.player}</p>
                     <p className="truncate text-[10px] font-black uppercase text-black/45">{scorer.team}</p>
                   </div>
                 </div>
 
                 <div className="flex justify-center pr-2">
-                  <span className="min-w-10 rounded-[0.65rem] bg-black px-2 py-1 text-center text-base font-black text-white">{scorer.goals}</span>
+                  <span className="min-w-10 rounded-[0.45rem] bg-black px-2 py-1 text-center text-base font-black text-white">{scorer.goals}</span>
                 </div>
               </div>
             );

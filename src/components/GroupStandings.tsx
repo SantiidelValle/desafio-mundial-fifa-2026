@@ -130,12 +130,12 @@ export default function GroupStandings({ matches, onBack }: GroupStandingsProps)
         </div>
       </div>
 
-      <div className="relative z-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+      <div className="relative z-10 grid gap-x-5 gap-y-6 md:grid-cols-2 xl:grid-cols-3">
         {standings.map(({ group, teams }) => (
-          <article key={group} className="overflow-hidden rounded-[1.35rem] border border-lime-300/45 bg-black/80 p-2 shadow-lg">
-            <div className="grid grid-cols-[2rem_minmax(0,1fr)_8.5rem] items-center gap-2 rounded-t-[1rem] bg-lime-400 px-3 py-2 text-black sm:grid-cols-[2rem_minmax(0,1fr)_9.2rem]">
-              <h3 className="col-span-2 text-lg font-black uppercase tracking-normal">{group}</h3>
-              <div className="grid grid-cols-4 gap-1 pr-2 text-center text-[10px] font-black uppercase text-black/70">
+          <article key={group} className="rounded-[1rem] bg-black/20 p-1">
+            <div className="mb-1 grid grid-cols-[minmax(0,1fr)_7.7rem] items-end gap-2 px-1 text-white sm:grid-cols-[minmax(0,1fr)_8.5rem]">
+              <h3 className="text-base font-black uppercase tracking-normal">{group}</h3>
+              <div className="grid grid-cols-4 gap-1 text-center text-[9px] font-black uppercase text-white/70">
                 <span>Pts</span>
                 <span>GF</span>
                 <span>GC</span>
@@ -143,43 +143,46 @@ export default function GroupStandings({ matches, onBack }: GroupStandingsProps)
               </div>
             </div>
 
-            <div className="space-y-2 rounded-b-[1rem] bg-white p-2">
+            <div className="space-y-1.5">
               {teams.map((team, index) => {
                 const flagImage = getFlagImageUrl(team.team);
 
                 return (
                   <div
                     key={team.team}
-                    className="grid min-h-[3.65rem] grid-cols-[2rem_minmax(0,1fr)_8.5rem] items-center gap-2 rounded-[1rem] bg-white text-black shadow-[inset_0_0_0_1px_rgba(0,0,0,0.08)] sm:grid-cols-[2rem_minmax(0,1fr)_9.2rem]"
+                    className="grid min-h-[2.85rem] grid-cols-[1.8rem_3.4rem_minmax(0,1fr)_7.7rem] items-center overflow-hidden rounded-r-[1.2rem] rounded-l-[0.4rem] bg-white text-black shadow-[0_1px_0_rgba(255,255,255,0.55),inset_0_0_0_1px_rgba(0,0,0,0.08)] sm:grid-cols-[1.8rem_3.6rem_minmax(0,1fr)_8.5rem]"
                   >
-                    <div className="flex h-full items-center justify-center rounded-l-[1rem] bg-black text-sm font-black text-white">
+                    <div className="flex h-full items-center justify-center bg-black text-sm font-black text-white">
                       {index + 1}
                     </div>
 
-                    <div className="flex min-w-0 items-center gap-3 py-2 pr-1">
+                    <div className="h-full overflow-hidden bg-black/5">
                       {flagImage ? (
                         <img
                           src={flagImage}
                           alt={`Bandera de ${team.team}`}
-                          className="h-8 w-12 shrink-0 rounded-[0.55rem] object-cover shadow-[inset_0_0_0_1px_rgba(0,0,0,0.14)]"
+                          className="h-full w-full object-cover"
                           draggable={false}
                         />
                       ) : (
-                        <span className="w-12 shrink-0 text-2xl">{team.flag}</span>
+                        <span className="flex h-full w-full items-center justify-center text-2xl">{team.flag}</span>
                       )}
+                    </div>
+
+                    <div className="flex min-w-0 items-center py-1 pl-2 pr-1">
                       <div className="min-w-0">
-                        <p className="truncate text-sm font-black uppercase leading-tight sm:text-base">{team.team}</p>
-                        <p className="text-[10px] font-black uppercase text-black/45">
+                        <p className="truncate text-xs font-black uppercase leading-tight sm:text-sm">{team.team}</p>
+                        <p className="truncate text-[8px] font-black uppercase text-black/45 sm:text-[9px]">
                           PJ {team.played} · PG {team.won} · PE {team.drawn} · PP {team.lost}
                         </p>
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-4 gap-1 pr-2 text-center text-sm font-black">
-                      <span className="rounded-[0.55rem] bg-black px-1.5 py-1 text-white">{team.points}</span>
-                      <span className="rounded-[0.55rem] bg-black/8 px-1.5 py-1">{team.goalsFor}</span>
-                      <span className="rounded-[0.55rem] bg-black/8 px-1.5 py-1">{team.goalsAgainst}</span>
-                      <span className="rounded-[0.55rem] bg-black/8 px-1.5 py-1">{formatGoalDifference(team.goalDifference)}</span>
+                    <div className="grid grid-cols-4 gap-1 pr-2 text-center text-xs font-black sm:text-sm">
+                      <span className="rounded-[0.45rem] bg-black px-1 py-0.5 text-white">{team.points}</span>
+                      <span className="rounded-[0.45rem] bg-black/8 px-1 py-0.5">{team.goalsFor}</span>
+                      <span className="rounded-[0.45rem] bg-black/8 px-1 py-0.5">{team.goalsAgainst}</span>
+                      <span className="rounded-[0.45rem] bg-black/8 px-1 py-0.5">{formatGoalDifference(team.goalDifference)}</span>
                     </div>
                   </div>
                 );
