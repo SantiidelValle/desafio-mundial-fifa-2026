@@ -1,6 +1,8 @@
 import { ChevronLeft } from "lucide-react";
+import { useState } from "react";
 import type { Match } from "../types/Match";
 import { getFlagImageUrl } from "../utils/flagImages";
+import KnockoutStage from "./KnockoutStage";
 
 interface GroupStandingsProps {
   matches: Match[];
@@ -101,8 +103,10 @@ function formatGoalDifference(value: number) {
 }
 
 export default function GroupStandings({ matches, onBack }: GroupStandingsProps) {
+  const [view, setView] = useState<"groups" | "knockout">("groups");
   const standings = buildGroupStandings(matches);
   const totalTeams = standings.reduce((total, group) => total + group.teams.length, 0);
+  const title = view === "groups" ? "Tablas de grupos" : "Knockout stage";
 
   return (
     <section className="relative overflow-hidden rounded-lg border border-white/15 bg-black/90 p-4 shadow-stadium sm:p-6">
@@ -113,82 +117,105 @@ export default function GroupStandings({ matches, onBack }: GroupStandingsProps)
           <button
             type="button"
             onClick={onBack}
-            className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white text-sm font-black uppercase text-black px-4 py-2 transition hover:bg-mundialGold"
+            className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white px-4 py-2 text-sm font-black uppercase text-black transition hover:bg-mundialGold"
           >
             <ChevronLeft size={18} />
             Volver
           </button>
           <p className="text-sm font-black uppercase text-mundialGold">Clasificación Mundial 2026</p>
           <h2 className="mt-1 text-3xl font-black uppercase leading-none text-white sm:text-5xl">
-            Tablas de grupos
+            {title}
           </h2>
         </div>
 
-        <div className="rounded-lg border border-white/15 bg-white/10 px-4 py-3 text-left sm:text-right">
-          <p className="text-xs font-black uppercase text-white/60">Selecciones cargadas</p>
-          <p className="text-3xl font-black text-white">{totalTeams}</p>
+        <div className="flex flex-col gap-3 sm:items-end">
+          <div className="inline-grid grid-cols-2 gap-1 rounded-lg border border-white/15 bg-white/10 p-1">
+            <button
+              type="button"
+              onClick={() => setView("groups")}
+              className={`rounded-md px-3 py-2 text-xs font-black uppercase transition ${view === "groups" ? "bg-white text-black" : "text-white/70 hover:bg-white/10"}`}
+            >
+              Fase de grupos
+            </button>
+            <button
+              type="button"
+              onClick={() => setView("knockout")}
+              className={`rounded-md px-3 py-2 text-xs font-black uppercase transition ${view === "knockout" ? "bg-white text-black" : "text-white/70 hover:bg-white/10"}`}
+            >
+              Knockout stage
+            </button>
+          </div>
+
+          <div className="rounded-lg border border-white/15 bg-white/10 px-4 py-3 text-left sm:text-right">
+            <p className="text-xs font-black uppercase text-white/60">{view === "groups" ? "Selecciones cargadas" : "Cruces oficiales"}</p>
+            <p className="text-3xl font-black text-white">{view === "groups" ? totalTeams : 16}</p>
+          </div>
         </div>
       </div>
 
-      <div className="relative z-10 grid gap-x-5 gap-y-6 md:grid-cols-2 xl:grid-cols-3">
-        {standings.map(({ group, teams }) => (
-          <article key={group} className="rounded-[1rem] bg-black/20 p-1">
-            <div className="mb-1 grid grid-cols-[minmax(0,1fr)_7.7rem] items-end gap-2 px-1 text-white sm:grid-cols-[minmax(0,1fr)_8.5rem]">
-              <h3 className="text-base font-black uppercase tracking-normal">{group}</h3>
-              <div className="grid grid-cols-4 gap-1 text-center text-[9px] font-black uppercase text-white/70">
-                <span>Pts</span>
-                <span>GF</span>
-                <span>GC</span>
-                <span>Dif</span>
+      {view === "groups" ? (
+        <div className="relative z-10 grid gap-x-5 gap-y-6 md:grid-cols-2 xl:grid-cols-3">
+          {standings.map(({ group, teams }) => (
+            <article key={group} className="rounded-[1rem] bg-black/20 p-1">
+              <div className="mb-1 grid grid-cols-[minmax(0,1fr)_7.7rem] items-end gap-2 px-1 text-white sm:grid-cols-[minmax(0,1fr)_8.5rem]">
+                <h3 className="text-base font-black uppercase tracking-normal">{group}</h3>
+                <div className="grid grid-cols-4 gap-1 text-center text-[9px] font-black uppercase text-white/70">
+                  <span>Pts</span>
+                  <span>GF</span>
+                  <span>GC</span>
+                  <span>Dif</span>
+                </div>
               </div>
-            </div>
 
-            <div className="space-y-1.5">
-              {teams.map((team) => {
-                const flagImage = getFlagImageUrl(team.team);
+              <div className="space-y-1.5">
+                {teams.map((team) => {
+                  const flagImage = getFlagImageUrl(team.team);
 
-                return (
-                  <div
-                    key={team.team}
-                    className="grid h-10 grid-cols-[3.85rem_minmax(0,1fr)_7.5rem] items-stretch overflow-hidden rounded-l-[0.28rem] rounded-r-[0.95rem] bg-white text-black shadow-[0_1px_0_rgba(255,255,255,0.55),inset_0_0_0_1px_rgba(0,0,0,0.08)] sm:grid-cols-[4rem_minmax(0,1fr)_8.2rem]"
-                  >
-                    <div className="h-full overflow-hidden bg-black/5">
-                      <div className="flag-wedge h-full w-full overflow-hidden shadow-[inset_0_0_0_1px_rgba(0,0,0,0.12)]">
-                        {flagImage ? (
-                          <img
-                            src={flagImage}
-                            alt={`Bandera de ${team.team}`}
-                            className="h-full w-full object-cover"
-                            draggable={false}
-                          />
-                        ) : (
-                          <span className="flex h-full w-full items-center justify-center text-2xl">{team.flag}</span>
-                        )}
+                  return (
+                    <div
+                      key={team.team}
+                      className="grid h-10 grid-cols-[3.85rem_minmax(0,1fr)_7.5rem] items-stretch overflow-hidden rounded-l-[0.28rem] rounded-r-[0.95rem] bg-white text-black shadow-[0_1px_0_rgba(255,255,255,0.55),inset_0_0_0_1px_rgba(0,0,0,0.08)] sm:grid-cols-[4rem_minmax(0,1fr)_8.2rem]"
+                    >
+                      <div className="h-full overflow-hidden bg-black/5">
+                        <div className="flag-wedge h-full w-full overflow-hidden shadow-[inset_0_0_0_1px_rgba(0,0,0,0.12)]">
+                          {flagImage ? (
+                            <img
+                              src={flagImage}
+                              alt={`Bandera de ${team.team}`}
+                              className="h-full w-full object-cover"
+                              draggable={false}
+                            />
+                          ) : (
+                            <span className="flex h-full w-full items-center justify-center text-2xl">{team.flag}</span>
+                          )}
+                        </div>
+                      </div>
+
+                      <div className="flex min-w-0 items-center py-0.5 pl-2 pr-1">
+                        <div className="min-w-0">
+                          <p className="truncate text-xs font-black uppercase leading-tight sm:text-sm">{team.team}</p>
+                          <p className="truncate text-[8px] font-black uppercase text-black/45 sm:text-[9px]">
+                            PJ {team.played} · PG {team.won} · PE {team.drawn} · PP {team.lost}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-4 items-center gap-1 pr-2 text-center text-xs font-black sm:text-sm">
+                        <span className="inline-flex h-7 items-center justify-center rounded-[0.48rem] bg-black px-1 text-white">{team.points}</span>
+                        <span className="inline-flex h-7 items-center justify-center rounded-[0.48rem] bg-black/8 px-1">{team.goalsFor}</span>
+                        <span className="inline-flex h-7 items-center justify-center rounded-[0.48rem] bg-black/8 px-1">{team.goalsAgainst}</span>
+                        <span className="inline-flex h-7 items-center justify-center rounded-[0.48rem] bg-black/8 px-1">{formatGoalDifference(team.goalDifference)}</span>
                       </div>
                     </div>
-
-                    <div className="flex min-w-0 items-center py-0.5 pl-2 pr-1">
-                      <div className="min-w-0">
-                        <p className="truncate text-xs font-black uppercase leading-tight sm:text-sm">{team.team}</p>
-                        <p className="truncate text-[8px] font-black uppercase text-black/45 sm:text-[9px]">
-                          PJ {team.played} · PG {team.won} · PE {team.drawn} · PP {team.lost}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-4 items-center gap-1 pr-2 text-center text-xs font-black sm:text-sm">
-                      <span className="inline-flex h-7 items-center justify-center rounded-[0.48rem] bg-black px-1 text-white">{team.points}</span>
-                      <span className="inline-flex h-7 items-center justify-center rounded-[0.48rem] bg-black/8 px-1">{team.goalsFor}</span>
-                      <span className="inline-flex h-7 items-center justify-center rounded-[0.48rem] bg-black/8 px-1">{team.goalsAgainst}</span>
-                      <span className="inline-flex h-7 items-center justify-center rounded-[0.48rem] bg-black/8 px-1">{formatGoalDifference(team.goalDifference)}</span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </article>
-        ))}
-      </div>
+                  );
+                })}
+              </div>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <KnockoutStage matches={matches} />
+      )}
     </section>
   );
 }
