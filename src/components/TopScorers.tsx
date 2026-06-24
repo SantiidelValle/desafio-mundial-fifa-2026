@@ -95,14 +95,14 @@ export default function TopScorers({ matches, onBack }: TopScorersProps) {
             return (
               <div
                 key={`${scorer.team}-${scorer.player}`}
-                className="grid min-h-[3.15rem] grid-cols-[2.25rem_3.7rem_minmax(0,1fr)_5.5rem] items-center overflow-hidden rounded-r-[1.2rem] rounded-l-[0.4rem] bg-white text-black shadow-[0_1px_0_rgba(255,255,255,0.55),inset_0_0_0_1px_rgba(0,0,0,0.08)] sm:grid-cols-[2.5rem_4rem_minmax(0,1fr)_7rem]"
+                className="grid min-h-[3.15rem] grid-cols-[2.25rem_4rem_minmax(0,1fr)_5.5rem] items-stretch overflow-hidden rounded-r-[1.2rem] rounded-l-[0.4rem] bg-white text-black shadow-[0_1px_0_rgba(255,255,255,0.55),inset_0_0_0_1px_rgba(0,0,0,0.08)] sm:grid-cols-[2.5rem_4.25rem_minmax(0,1fr)_7rem]"
               >
                 <div className="flex h-full items-center justify-center bg-black text-sm font-black text-white">
                   {index + 1}
                 </div>
 
-                <div className="flex h-full items-center pl-1">
-                  <div className="flag-wedge h-10 w-full overflow-hidden bg-black/5 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.12)]">
+                <div className="h-full overflow-hidden bg-black/5">
+                  <div className="flag-wedge h-full w-full overflow-hidden shadow-[inset_0_0_0_1px_rgba(0,0,0,0.12)]">
                     {flagImage ? (
                       <img
                         src={flagImage}

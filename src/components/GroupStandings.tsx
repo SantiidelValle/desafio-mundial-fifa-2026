@@ -150,10 +150,10 @@ export default function GroupStandings({ matches, onBack }: GroupStandingsProps)
                 return (
                   <div
                     key={team.team}
-                    className="grid min-h-[2.85rem] grid-cols-[3.65rem_minmax(0,1fr)_7.7rem] items-center rounded-[1.2rem] bg-white text-black shadow-[0_1px_0_rgba(255,255,255,0.55),inset_0_0_0_1px_rgba(0,0,0,0.08)] sm:grid-cols-[3.85rem_minmax(0,1fr)_8.5rem]"
+                    className="grid min-h-[2.85rem] grid-cols-[3.75rem_minmax(0,1fr)_7.7rem] items-stretch overflow-hidden rounded-r-[1.2rem] rounded-l-[0.55rem] bg-white text-black shadow-[0_1px_0_rgba(255,255,255,0.55),inset_0_0_0_1px_rgba(0,0,0,0.08)] sm:grid-cols-[4rem_minmax(0,1fr)_8.5rem]"
                   >
-                    <div className="flex h-full items-center pl-1">
-                      <div className="flag-wedge h-8 w-full overflow-hidden bg-black/5 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.12)]">
+                    <div className="h-full overflow-hidden rounded-l-[0.55rem] bg-black/5">
+                      <div className="flag-wedge h-full w-full overflow-hidden shadow-[inset_0_0_0_1px_rgba(0,0,0,0.12)]">
                         {flagImage ? (
                           <img
                             src={flagImage}
