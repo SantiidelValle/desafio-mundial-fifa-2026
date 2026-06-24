@@ -3,6 +3,7 @@ import { BellOff, BellRing, ChevronLeft, Play } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import DifficultySelector from "./components/DifficultySelector";
 import FinalResult from "./components/FinalResult";
+import GroupStandings from "./components/GroupStandings";
 import MatchCard from "./components/MatchCard";
 import ModeSelector from "./components/ModeSelector";
 import PlayerStats from "./components/PlayerStats";
@@ -31,7 +32,7 @@ import { getMaxScore } from "./utils/scoring";
 import { sortMatches } from "./utils/sortMatches";
 import { validateMatchAnswer } from "./utils/matchValidator";
 
-type Screen = "home" | "mode" | "game" | "review" | "final" | "answers" | "stats";
+type Screen = "home" | "mode" | "game" | "review" | "final" | "answers" | "stats" | "standings";
 
 const rawMatches = matchesData as Match[];
 
@@ -237,9 +238,20 @@ export default function App() {
 
                 <div className="brand-lockup mt-7">
                   <div className="flex items-center justify-center gap-4 sm:gap-6">
-                    <div className="hidden sm:block">
-                      <TriondaBall size={116} />
-                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setScreen("standings")}
+                      className="rounded-full transition hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+                      title="Ver tablas de grupos"
+                      aria-label="Ver tablas de grupos"
+                    >
+                      <span className="block sm:hidden">
+                        <TriondaBall size={82} />
+                      </span>
+                      <span className="hidden sm:block">
+                        <TriondaBall size={116} />
+                      </span>
+                    </button>
                     <div>
                       <div className="brand-title">FIFA</div>
                       <div className="brand-subtitle">World Cup</div>
@@ -306,6 +318,12 @@ export default function App() {
                 onContinue={continueGame}
                 onResetProgress={resetProgress}
               />
+            </motion.main>
+          )}
+
+          {screen === "standings" && (
+            <motion.main key="standings" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -12 }}>
+              <GroupStandings matches={rawMatches} onBack={() => setScreen("home")} />
             </motion.main>
           )}
 
