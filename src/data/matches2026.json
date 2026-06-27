@@ -1476,5 +1476,496 @@
         "minuto": 76
       }
     ]
+  },
+  {
+    "id": 49,
+    "fecha": "2026-06-24",
+    "hora": "13:00",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo B",
+    "equipoLocal": "Bosnia y Herzegovina",
+    "equipoVisitante": "Qatar",
+    "banderaLocal": "🇧🇦",
+    "banderaVisitante": "🇶🇦",
+    "resultadoLocal": 3,
+    "resultadoVisitante": 1,
+    "estadio": "Seattle Stadium",
+    "goles": [
+      {
+        "equipo": "Bosnia y Herzegovina",
+        "jugador": "Kerim Alajbegovic",
+        "minuto": 29
+      },
+      {
+        "equipo": "Bosnia y Herzegovina",
+        "jugador": "Sultan Albrake",
+        "minuto": 34,
+        "ownGoal": true
+      },
+      {
+        "equipo": "Qatar",
+        "jugador": "Hassan Al Haydos",
+        "minuto": 42
+      },
+      {
+        "equipo": "Bosnia y Herzegovina",
+        "jugador": "Ermin Mahmic",
+        "minuto": 80
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "fecha": "2026-06-24",
+    "hora": "15:00",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo B",
+    "equipoLocal": "Suiza",
+    "equipoVisitante": "Canadá",
+    "banderaLocal": "🇨🇭",
+    "banderaVisitante": "🇨🇦",
+    "resultadoLocal": 2,
+    "resultadoVisitante": 1,
+    "estadio": "BC Place Vancouver",
+    "goles": [
+      {
+        "equipo": "Suiza",
+        "jugador": "Ruben Vargas",
+        "minuto": 46
+      },
+      {
+        "equipo": "Suiza",
+        "jugador": "Johan Manzambi",
+        "minuto": 57
+      },
+      {
+        "equipo": "Canadá",
+        "jugador": "Promise David",
+        "minuto": 76
+      }
+    ]
+  },
+  {
+    "id": 51,
+    "fecha": "2026-06-24",
+    "hora": "18:00",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo C",
+    "equipoLocal": "Escocia",
+    "equipoVisitante": "Brasil",
+    "banderaLocal": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+    "banderaVisitante": "🇧🇷",
+    "resultadoLocal": 0,
+    "resultadoVisitante": 3,
+    "estadio": "Miami Stadium",
+    "goles": [
+      {
+        "equipo": "Brasil",
+        "jugador": "Vinicius Junior",
+        "minuto": 7
+      },
+      {
+        "equipo": "Brasil",
+        "jugador": "Vinicius Junior",
+        "minuto": "45+3"
+      },
+      {
+        "equipo": "Brasil",
+        "jugador": "Matheus Cunha",
+        "minuto": 60
+      }
+    ]
+  },
+  {
+    "id": 52,
+    "fecha": "2026-06-24",
+    "hora": "18:00",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo C",
+    "equipoLocal": "Marruecos",
+    "equipoVisitante": "Haití",
+    "banderaLocal": "🇲🇦",
+    "banderaVisitante": "🇭🇹",
+    "resultadoLocal": 4,
+    "resultadoVisitante": 2,
+    "estadio": "Atlanta Stadium",
+    "goles": [
+      {
+        "equipo": "Haití",
+        "jugador": "Lenny Joseph",
+        "minuto": 10
+      },
+      {
+        "equipo": "Marruecos",
+        "jugador": "Achraf Hakimi",
+        "minuto": 39
+      },
+      {
+        "equipo": "Haití",
+        "jugador": "Wilson Isidor",
+        "minuto": 43
+      },
+      {
+        "equipo": "Marruecos",
+        "jugador": "Ismael Saibari",
+        "minuto": "45+1"
+      },
+      {
+        "equipo": "Marruecos",
+        "jugador": "Soufiane Rahimi",
+        "minuto": 78
+      },
+      {
+        "equipo": "Marruecos",
+        "jugador": "Gessime Yassine",
+        "minuto": 89
+      }
+    ]
+  },
+  {
+    "id": 53,
+    "fecha": "2026-06-24",
+    "hora": "21:00",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo A",
+    "equipoLocal": "Chequia",
+    "equipoVisitante": "México",
+    "banderaLocal": "🇨🇿",
+    "banderaVisitante": "🇲🇽",
+    "resultadoLocal": 0,
+    "resultadoVisitante": 3,
+    "estadio": "Mexico City Stadium",
+    "goles": [
+      {
+        "equipo": "México",
+        "jugador": "Mateo Chávez",
+        "minuto": 54
+      },
+      {
+        "equipo": "México",
+        "jugador": "Julián Quiñones",
+        "minuto": 61
+      },
+      {
+        "equipo": "México",
+        "jugador": "Álvaro Fidalgo",
+        "minuto": "90+4"
+      }
+    ]
+  },
+  {
+    "id": 54,
+    "fecha": "2026-06-24",
+    "hora": "21:00",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo A",
+    "equipoLocal": "Sudáfrica",
+    "equipoVisitante": "Corea del Sur",
+    "banderaLocal": "🇿🇦",
+    "banderaVisitante": "🇰🇷",
+    "resultadoLocal": 1,
+    "resultadoVisitante": 0,
+    "estadio": "Monterrey Stadium",
+    "goles": [
+      {
+        "equipo": "Sudáfrica",
+        "jugador": "Thapelo Maseko",
+        "minuto": 63
+      }
+    ]
+  },
+  {
+    "id": 55,
+    "fecha": "2026-06-25",
+    "hora": "16:00",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo E",
+    "equipoLocal": "Curazao",
+    "equipoVisitante": "Costa de Marfil",
+    "banderaLocal": "🇨🇼",
+    "banderaVisitante": "🇨🇮",
+    "resultadoLocal": 0,
+    "resultadoVisitante": 2,
+    "estadio": "Philadelphia Stadium",
+    "goles": [
+      {
+        "equipo": "Costa de Marfil",
+        "jugador": "Nicolas Pépé",
+        "minuto": 7
+      },
+      {
+        "equipo": "Costa de Marfil",
+        "jugador": "Nicolas Pépé",
+        "minuto": 64
+      }
+    ]
+  },
+  {
+    "id": 56,
+    "fecha": "2026-06-25",
+    "hora": "16:00",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo E",
+    "equipoLocal": "Ecuador",
+    "equipoVisitante": "Alemania",
+    "banderaLocal": "🇪🇨",
+    "banderaVisitante": "🇩🇪",
+    "resultadoLocal": 2,
+    "resultadoVisitante": 1,
+    "estadio": "New York New Jersey Stadium",
+    "goles": [
+      {
+        "equipo": "Alemania",
+        "jugador": "Leroy Sané",
+        "minuto": 2
+      },
+      {
+        "equipo": "Ecuador",
+        "jugador": "Nilson Angulo",
+        "minuto": 9
+      },
+      {
+        "equipo": "Ecuador",
+        "jugador": "Gonzalo Plata",
+        "minuto": 77
+      }
+    ]
+  },
+  {
+    "id": 57,
+    "fecha": "2026-06-25",
+    "hora": "19:00",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo F",
+    "equipoLocal": "Japón",
+    "equipoVisitante": "Suecia",
+    "banderaLocal": "🇯🇵",
+    "banderaVisitante": "🇸🇪",
+    "resultadoLocal": 1,
+    "resultadoVisitante": 1,
+    "estadio": "Dallas Stadium",
+    "goles": [
+      {
+        "equipo": "Japón",
+        "jugador": "Daizen Maeda",
+        "minuto": 56
+      },
+      {
+        "equipo": "Suecia",
+        "jugador": "Anthony Elanga",
+        "minuto": 61
+      }
+    ]
+  },
+  {
+    "id": 58,
+    "fecha": "2026-06-25",
+    "hora": "19:00",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo F",
+    "equipoLocal": "Túnez",
+    "equipoVisitante": "Países Bajos",
+    "banderaLocal": "🇹🇳",
+    "banderaVisitante": "🇳🇱",
+    "resultadoLocal": 1,
+    "resultadoVisitante": 3,
+    "estadio": "Kansas City Stadium",
+    "goles": [
+      {
+        "equipo": "Países Bajos",
+        "jugador": "Ellyes Skhiri",
+        "minuto": 3,
+        "ownGoal": true
+      },
+      {
+        "equipo": "Países Bajos",
+        "jugador": "Brian Brobbey",
+        "minuto": 7
+      },
+      {
+        "equipo": "Túnez",
+        "jugador": "Hazem Mastouri",
+        "minuto": 54
+      },
+      {
+        "equipo": "Países Bajos",
+        "jugador": "Jan Paul van Hecke",
+        "minuto": 62
+      }
+    ]
+  },
+  {
+    "id": 59,
+    "fecha": "2026-06-25",
+    "hora": "22:00",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo D",
+    "equipoLocal": "Turquía",
+    "equipoVisitante": "Estados Unidos",
+    "banderaLocal": "🇹🇷",
+    "banderaVisitante": "🇺🇸",
+    "resultadoLocal": 3,
+    "resultadoVisitante": 2,
+    "estadio": "Los Angeles Stadium",
+    "goles": [
+      {
+        "equipo": "Estados Unidos",
+        "jugador": "Auston Trusty",
+        "minuto": 3
+      },
+      {
+        "equipo": "Turquía",
+        "jugador": "Arda Güler",
+        "minuto": 10
+      },
+      {
+        "equipo": "Turquía",
+        "jugador": "Orkun Kökçü",
+        "minuto": 31
+      },
+      {
+        "equipo": "Estados Unidos",
+        "jugador": "Sebastian Berhalter",
+        "minuto": 49
+      },
+      {
+        "equipo": "Turquía",
+        "jugador": "Kaan Ayhan",
+        "minuto": "90+8"
+      }
+    ]
+  },
+  {
+    "id": 60,
+    "fecha": "2026-06-25",
+    "hora": "22:00",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo D",
+    "equipoLocal": "Paraguay",
+    "equipoVisitante": "Australia",
+    "banderaLocal": "🇵🇾",
+    "banderaVisitante": "🇦🇺",
+    "resultadoLocal": 0,
+    "resultadoVisitante": 0,
+    "estadio": "San Francisco Bay Area Stadium",
+    "goles": []
+  },
+  {
+    "id": 61,
+    "fecha": "2026-06-26",
+    "hora": "13:00",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo I",
+    "equipoLocal": "Noruega",
+    "equipoVisitante": "Francia",
+    "banderaLocal": "🇳🇴",
+    "banderaVisitante": "🇫🇷",
+    "resultadoLocal": 1,
+    "resultadoVisitante": 4,
+    "estadio": "Boston Stadium",
+    "goles": [
+      {
+        "equipo": "Francia",
+        "jugador": "Ousmane Dembélé",
+        "minuto": 7
+      },
+      {
+        "equipo": "Francia",
+        "jugador": "Ousmane Dembélé",
+        "minuto": 20
+      },
+      {
+        "equipo": "Noruega",
+        "jugador": "Thelo Aasgaard",
+        "minuto": 21
+      },
+      {
+        "equipo": "Francia",
+        "jugador": "Ousmane Dembélé",
+        "minuto": 32
+      },
+      {
+        "equipo": "Francia",
+        "jugador": "Désiré Doué",
+        "minuto": "90+4"
+      }
+    ]
+  },
+  {
+    "id": 62,
+    "fecha": "2026-06-26",
+    "hora": "13:00",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo I",
+    "equipoLocal": "Senegal",
+    "equipoVisitante": "Irak",
+    "banderaLocal": "🇸🇳",
+    "banderaVisitante": "🇮🇶",
+    "resultadoLocal": 5,
+    "resultadoVisitante": 0,
+    "estadio": "Toronto Stadium",
+    "goles": [
+      {
+        "equipo": "Senegal",
+        "jugador": "Habib Diarra",
+        "minuto": 4
+      },
+      {
+        "equipo": "Senegal",
+        "jugador": "Ismaila Sarr",
+        "minuto": 57
+      },
+      {
+        "equipo": "Senegal",
+        "jugador": "Pape Gueye",
+        "minuto": 59
+      },
+      {
+        "equipo": "Senegal",
+        "jugador": "Pape Gueye",
+        "minuto": 71
+      },
+      {
+        "equipo": "Senegal",
+        "jugador": "Iliman Ndiaye",
+        "minuto": 83
+      }
+    ]
+  },
+  {
+    "id": 63,
+    "fecha": "2026-06-26",
+    "hora": "19:00",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo H",
+    "equipoLocal": "Cabo Verde",
+    "equipoVisitante": "Arabia Saudita",
+    "banderaLocal": "🇨🇻",
+    "banderaVisitante": "🇸🇦",
+    "resultadoLocal": 0,
+    "resultadoVisitante": 0,
+    "estadio": "Houston Stadium",
+    "goles": []
+  },
+  {
+    "id": 64,
+    "fecha": "2026-06-26",
+    "hora": "19:00",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo H",
+    "equipoLocal": "Uruguay",
+    "equipoVisitante": "España",
+    "banderaLocal": "🇺🇾",
+    "banderaVisitante": "🇪🇸",
+    "resultadoLocal": 0,
+    "resultadoVisitante": 1,
+    "estadio": "Guadalajara Stadium",
+    "goles": [
+      {
+        "equipo": "España",
+        "jugador": "Álex Baena",
+        "minuto": 41
+      }
+    ]
   }
 ]
