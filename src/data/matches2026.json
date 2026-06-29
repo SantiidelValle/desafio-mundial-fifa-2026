@@ -1967,5 +1967,267 @@
         "minuto": 41
       }
     ]
+  },
+  {
+    "id": 65,
+    "fecha": "2026-06-26",
+    "hora": "20:00",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo G",
+    "equipoLocal": "Egipto",
+    "equipoVisitante": "Irán",
+    "banderaLocal": "🇪🇬",
+    "banderaVisitante": "🇮🇷",
+    "resultadoLocal": 1,
+    "resultadoVisitante": 1,
+    "estadio": "Seattle Stadium",
+    "goles": [
+      {
+        "equipo": "Egipto",
+        "jugador": "Mahmoud Saber",
+        "minuto": 5
+      },
+      {
+        "equipo": "Irán",
+        "jugador": "Ramin Rezaeian",
+        "minuto": 14
+      }
+    ]
+  },
+  {
+    "id": 66,
+    "fecha": "2026-06-26",
+    "hora": "20:00",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo G",
+    "equipoLocal": "Nueva Zelanda",
+    "equipoVisitante": "Bélgica",
+    "banderaLocal": "🇳🇿",
+    "banderaVisitante": "🇧🇪",
+    "resultadoLocal": 1,
+    "resultadoVisitante": 5,
+    "estadio": "BC Place Vancouver",
+    "goles": [
+      {
+        "equipo": "Bélgica",
+        "jugador": "Leandro Trossard",
+        "minuto": 28
+      },
+      {
+        "equipo": "Bélgica",
+        "jugador": "Leandro Trossard",
+        "minuto": 50
+      },
+      {
+        "equipo": "Bélgica",
+        "jugador": "Kevin De Bruyne",
+        "minuto": 67
+      },
+      {
+        "equipo": "Nueva Zelanda",
+        "jugador": "Elijah Just",
+        "minuto": 84
+      },
+      {
+        "equipo": "Bélgica",
+        "jugador": "Romelu Lukaku",
+        "minuto": 86
+      },
+      {
+        "equipo": "Bélgica",
+        "jugador": "Alexis Saelemaekers",
+        "minuto": "90+4"
+      }
+    ]
+  },
+  {
+    "id": 67,
+    "fecha": "2026-06-27",
+    "hora": "17:00",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo L",
+    "equipoLocal": "Panamá",
+    "equipoVisitante": "Inglaterra",
+    "banderaLocal": "🇵🇦",
+    "banderaVisitante": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "resultadoLocal": 0,
+    "resultadoVisitante": 2,
+    "estadio": "New York New Jersey Stadium",
+    "goles": [
+      {
+        "equipo": "Inglaterra",
+        "jugador": "Jude Bellingham",
+        "minuto": 62
+      },
+      {
+        "equipo": "Inglaterra",
+        "jugador": "Harry Kane",
+        "minuto": 67
+      }
+    ]
+  },
+  {
+    "id": 68,
+    "fecha": "2026-06-27",
+    "hora": "17:00",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo L",
+    "equipoLocal": "Croacia",
+    "equipoVisitante": "Ghana",
+    "banderaLocal": "🇭🇷",
+    "banderaVisitante": "🇬🇭",
+    "resultadoLocal": 2,
+    "resultadoVisitante": 1,
+    "estadio": "Philadelphia Stadium",
+    "goles": [
+      {
+        "equipo": "Croacia",
+        "jugador": "Petar Sučić",
+        "minuto": 31
+      },
+      {
+        "equipo": "Ghana",
+        "jugador": "Derrick Luckassen",
+        "minuto": 73
+      },
+      {
+        "equipo": "Croacia",
+        "jugador": "Nikola Vlašić",
+        "minuto": 83
+      }
+    ]
+  },
+  {
+    "id": 69,
+    "fecha": "2026-06-27",
+    "hora": "19:30",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo K",
+    "equipoLocal": "Colombia",
+    "equipoVisitante": "Portugal",
+    "banderaLocal": "🇨🇴",
+    "banderaVisitante": "🇵🇹",
+    "resultadoLocal": 0,
+    "resultadoVisitante": 0,
+    "estadio": "Miami Stadium",
+    "goles": []
+  },
+  {
+    "id": 70,
+    "fecha": "2026-06-27",
+    "hora": "19:30",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo K",
+    "equipoLocal": "RD Congo",
+    "equipoVisitante": "Uzbekistán",
+    "banderaLocal": "🇨🇩",
+    "banderaVisitante": "🇺🇿",
+    "resultadoLocal": 3,
+    "resultadoVisitante": 1,
+    "estadio": "Atlanta Stadium",
+    "goles": [
+      {
+        "equipo": "Uzbekistán",
+        "jugador": "Eldor Shomurodov",
+        "minuto": 10
+      },
+      {
+        "equipo": "RD Congo",
+        "jugador": "Yoane Wissa",
+        "minuto": 68
+      },
+      {
+        "equipo": "RD Congo",
+        "jugador": "Fiston Mayele",
+        "minuto": 78
+      },
+      {
+        "equipo": "RD Congo",
+        "jugador": "Yoane Wissa",
+        "minuto": "90+1"
+      }
+    ]
+  },
+  {
+    "id": 71,
+    "fecha": "2026-06-27",
+    "hora": "21:00",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo J",
+    "equipoLocal": "Jordania",
+    "equipoVisitante": "Argentina",
+    "banderaLocal": "🇯🇴",
+    "banderaVisitante": "🇦🇷",
+    "resultadoLocal": 1,
+    "resultadoVisitante": 3,
+    "estadio": "Dallas Stadium",
+    "goles": [
+      {
+        "equipo": "Argentina",
+        "jugador": "Giovani Lo Celso",
+        "minuto": 19
+      },
+      {
+        "equipo": "Argentina",
+        "jugador": "Lautaro Martinez",
+        "minuto": 31
+      },
+      {
+        "equipo": "Jordania",
+        "jugador": "Musa Al-Taamari",
+        "minuto": 55
+      },
+      {
+        "equipo": "Argentina",
+        "jugador": "Lionel Messi",
+        "minuto": 80
+      }
+    ]
+  },
+  {
+    "id": 72,
+    "fecha": "2026-06-27",
+    "hora": "21:00",
+    "fase": "Fase de grupos",
+    "grupo": "Grupo J",
+    "equipoLocal": "Argelia",
+    "equipoVisitante": "Austria",
+    "banderaLocal": "🇩🇿",
+    "banderaVisitante": "🇦🇹",
+    "resultadoLocal": 3,
+    "resultadoVisitante": 3,
+    "estadio": "Kansas City Stadium",
+    "goles": [
+      {
+        "equipo": "Austria",
+        "jugador": "Marko Arnautovic",
+        "minuto": 28
+      },
+      {
+        "equipo": "Argelia",
+        "jugador": "Rafik Belghali",
+        "minuto": 45
+      },
+      {
+        "equipo": "Austria",
+        "jugador": "Marcel Sabitzer",
+        "minuto": 54
+      },
+      {
+        "equipo": "Argelia",
+        "jugador": "Riyad Mahrez",
+        "minuto": 60
+      },
+      {
+        "equipo": "Argelia",
+        "jugador": "Riyad Mahrez",
+        "minuto": "90+4"
+      },
+      {
+        "equipo": "Austria",
+        "jugador": "Saša Kalajdžić",
+        "minuto": "90+5"
+      }
+    ]
   }
 ]

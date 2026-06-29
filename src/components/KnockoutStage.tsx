@@ -6,18 +6,9 @@ interface KnockoutStageProps {
   matches: Match[];
 }
 
-interface KnockoutSlot {
-  code: string;
-  team?: string;
-}
-
-interface BracketMatch {
-  id: number;
-  slots: [KnockoutSlot, KnockoutSlot];
-}
-
 interface TeamStanding {
   team: string;
+  flag: string;
   played: number;
   points: number;
   goalsFor: number;
@@ -25,75 +16,90 @@ interface TeamStanding {
   goalDifference: number;
 }
 
-const roundOf32Matches: BracketMatch[] = [
-  { id: 73, slots: [{ code: "2A" }, { code: "2B" }] },
-  { id: 74, slots: [{ code: "1E" }, { code: "3ABCDF" }] },
-  { id: 75, slots: [{ code: "1F" }, { code: "2C" }] },
-  { id: 76, slots: [{ code: "1C" }, { code: "2F" }] },
-  { id: 77, slots: [{ code: "1I" }, { code: "3CDFGH" }] },
-  { id: 78, slots: [{ code: "2E" }, { code: "2I" }] },
-  { id: 79, slots: [{ code: "1A", team: "México" }, { code: "3CEFHI" }] },
-  { id: 80, slots: [{ code: "1L" }, { code: "3EHIJK" }] },
-  { id: 81, slots: [{ code: "1D" }, { code: "3BEFIJ" }] },
-  { id: 82, slots: [{ code: "1G" }, { code: "3AEHIJ" }] },
-  { id: 83, slots: [{ code: "2K" }, { code: "2L" }] },
-  { id: 84, slots: [{ code: "1H" }, { code: "2J" }] },
-  { id: 85, slots: [{ code: "1B" }, { code: "3EFGIJ" }] },
-  { id: 86, slots: [{ code: "1J" }, { code: "2H" }] },
-  { id: 87, slots: [{ code: "1K" }, { code: "3DEIJL" }] },
-  { id: 88, slots: [{ code: "2D" }, { code: "2G" }] }
-];
-
-const roundOf32ById = new Map(roundOf32Matches.map((match) => [match.id, match]));
-
-function getRoundOf32Match(id: number) {
-  const match = roundOf32ById.get(id);
-  if (!match) throw new Error(`Missing match ${id}`);
-  return match;
+interface SlotTeam {
+  code: string;
+  team?: string;
+  flag?: string;
 }
 
-function winner(code: number): KnockoutSlot {
-  return { code: `G${code}` };
+interface RoundOf32Tie {
+  id: number;
+  homeCode: string;
+  awayCode: string;
 }
 
-const leftRoundOf32 = [74, 77, 73, 75, 83, 84, 81, 82].map(getRoundOf32Match);
-const rightRoundOf32 = [76, 78, 79, 80, 86, 88, 85, 87].map(getRoundOf32Match);
-
-const leftRoundOf16: BracketMatch[] = [
-  { id: 89, slots: [winner(74), winner(77)] },
-  { id: 90, slots: [winner(73), winner(75)] },
-  { id: 93, slots: [winner(83), winner(84)] },
-  { id: 94, slots: [winner(81), winner(82)] }
+const leftTies: RoundOf32Tie[] = [
+  { id: 74, homeCode: "1E", awayCode: "3D" },
+  { id: 77, homeCode: "1I", awayCode: "3F" },
+  { id: 73, homeCode: "2A", awayCode: "2B" },
+  { id: 75, homeCode: "1F", awayCode: "2C" },
+  { id: 83, homeCode: "2K", awayCode: "2L" },
+  { id: 84, homeCode: "1H", awayCode: "2J" },
+  { id: 81, homeCode: "1D", awayCode: "3B" },
+  { id: 82, homeCode: "1G", awayCode: "3I" }
 ];
 
-const rightRoundOf16: BracketMatch[] = [
-  { id: 91, slots: [winner(76), winner(78)] },
-  { id: 92, slots: [winner(79), winner(80)] },
-  { id: 95, slots: [winner(86), winner(88)] },
-  { id: 96, slots: [winner(85), winner(87)] }
+const rightTies: RoundOf32Tie[] = [
+  { id: 76, homeCode: "1C", awayCode: "2F" },
+  { id: 78, homeCode: "2E", awayCode: "2I" },
+  { id: 79, homeCode: "1A", awayCode: "3E" },
+  { id: 80, homeCode: "1L", awayCode: "3K" },
+  { id: 86, homeCode: "1J", awayCode: "2H" },
+  { id: 88, homeCode: "2D", awayCode: "2G" },
+  { id: 85, homeCode: "1B", awayCode: "3J" },
+  { id: 87, homeCode: "1K", awayCode: "3L" }
 ];
 
-const leftQuarterFinals: BracketMatch[] = [
-  { id: 97, slots: [winner(89), winner(90)] },
-  { id: 98, slots: [winner(93), winner(94)] }
-];
+const teamCodes: Record<string, string> = {
+  alemania: "ALE",
+  paraguay: "PAR",
+  francia: "FRA",
+  suecia: "SUE",
+  sudafrica: "SUD",
+  canada: "CAN",
+  "paises bajos": "HOL",
+  marruecos: "MAR",
+  portugal: "POR",
+  croacia: "CRO",
+  espana: "ESP",
+  austria: "AUT",
+  "estados unidos": "USA",
+  "bosnia y herzegovina": "BOS",
+  belgica: "BEL",
+  senegal: "SEN",
+  brasil: "BRA",
+  japon: "JAP",
+  "costa de marfil": "COS",
+  noruega: "NOR",
+  mexico: "MEX",
+  ecuador: "ECU",
+  inglaterra: "ING",
+  "rd congo": "RDC",
+  argentina: "ARG",
+  "cabo verde": "CAB",
+  australia: "AUS",
+  egipto: "EGI",
+  suiza: "SUI",
+  argelia: "ARG",
+  colombia: "COL",
+  ghana: "GHA"
+};
 
-const rightQuarterFinals: BracketMatch[] = [
-  { id: 99, slots: [winner(91), winner(92)] },
-  { id: 100, slots: [winner(95), winner(96)] }
-];
-
-const leftSemiFinal: BracketMatch[] = [{ id: 101, slots: [winner(97), winner(98)] }];
-const rightSemiFinal: BracketMatch[] = [{ id: 102, slots: [winner(99), winner(100)] }];
-const finalMatch: BracketMatch = { id: 104, slots: [winner(101), winner(102)] };
+function normalizeTeamName(value: string) {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+}
 
 function groupLetter(group: string) {
   return group.match(/[A-Z]$/)?.[0] ?? group;
 }
 
-function createStanding(team: string): TeamStanding {
+function createStanding(team: string, flag: string): TeamStanding {
   return {
     team,
+    flag,
     played: 0,
     points: 0,
     goalsFor: 0,
@@ -115,7 +121,7 @@ function addResult(team: TeamStanding, goalsFor: number, goalsAgainst: number) {
   }
 }
 
-function buildQualifiedSlots(matches: Match[]) {
+function buildSlotTeams(matches: Match[]) {
   const groups = new Map<string, Map<string, TeamStanding>>();
 
   for (const match of matches.filter((item) => item.fase === "Fase de grupos")) {
@@ -125,10 +131,10 @@ function buildQualifiedSlots(matches: Match[]) {
 
     const group = groups.get(match.grupo)!;
     if (!group.has(match.equipoLocal)) {
-      group.set(match.equipoLocal, createStanding(match.equipoLocal));
+      group.set(match.equipoLocal, createStanding(match.equipoLocal, match.banderaLocal));
     }
     if (!group.has(match.equipoVisitante)) {
-      group.set(match.equipoVisitante, createStanding(match.equipoVisitante));
+      group.set(match.equipoVisitante, createStanding(match.equipoVisitante, match.banderaVisitante));
     }
 
     if (typeof match.resultadoLocal !== "number" || typeof match.resultadoVisitante !== "number") {
@@ -139,7 +145,7 @@ function buildQualifiedSlots(matches: Match[]) {
     addResult(group.get(match.equipoVisitante)!, match.resultadoVisitante, match.resultadoLocal);
   }
 
-  const qualifiedSlots = new Map<string, string>();
+  const slotTeams = new Map<string, SlotTeam>();
 
   for (const [groupName, teams] of groups.entries()) {
     const standings = Array.from(teams.values()).sort((a, b) => {
@@ -155,93 +161,134 @@ function buildQualifiedSlots(matches: Match[]) {
     }
 
     const letter = groupLetter(groupName);
-    qualifiedSlots.set(`1${letter}`, standings[0].team);
-    qualifiedSlots.set(`2${letter}`, standings[1].team);
+    standings.slice(0, 3).forEach((team, index) => {
+      slotTeams.set(`${index + 1}${letter}`, {
+        code: `${index + 1}${letter}`,
+        team: team.team,
+        flag: team.flag
+      });
+    });
   }
 
-  return qualifiedSlots;
+  return slotTeams;
 }
 
-function resolveSlot(slot: KnockoutSlot, qualifiedSlots: Map<string, string>): KnockoutSlot {
-  const team = qualifiedSlots.get(slot.code) ?? slot.team;
-  return team ? { ...slot, team } : slot;
+function resolveSlot(code: string, slotTeams: Map<string, SlotTeam>): SlotTeam {
+  return slotTeams.get(code) ?? { code };
 }
 
-function SlotBox({ slot }: { slot: KnockoutSlot }) {
+function displayCode(slot: SlotTeam) {
+  if (!slot.team) return slot.code;
+  return teamCodes[normalizeTeamName(slot.team)] ?? slot.team.slice(0, 3).toUpperCase();
+}
+
+function TeamFlag({ slot }: { slot: SlotTeam }) {
   const flagImage = slot.team ? getFlagImageUrl(slot.team) : null;
 
   return (
-    <div
-      className="flex h-8 w-full min-w-[3.9rem] max-w-[5.25rem] items-center justify-center overflow-hidden rounded-[0.25rem] border border-mundialGold/25 bg-midnight text-[10px] font-black uppercase text-white shadow-sm"
-      title={slot.team ?? slot.code}
-    >
-      {flagImage ? <img src={flagImage} alt={`Bandera de ${slot.team}`} className="h-full w-full object-cover" draggable={false} /> : slot.code}
+    <span className="flex h-9 w-12 shrink-0 items-center justify-center overflow-hidden rounded-[0.28rem] border border-white/25 bg-white/10 shadow-[0_0_0_1px_rgba(0,0,0,0.35)]">
+      {flagImage ? (
+        <img src={flagImage} alt={`Bandera de ${slot.team}`} className="h-full w-full object-cover" draggable={false} />
+      ) : (
+        <span className="text-lg">{slot.flag ?? ""}</span>
+      )}
+    </span>
+  );
+}
+
+function TeamSide({ slot, align = "left" }: { slot: SlotTeam; align?: "left" | "right" }) {
+  const code = displayCode(slot);
+  const name = slot.team ?? slot.code;
+
+  if (align === "right") {
+    return (
+      <div className="flex min-w-0 items-center justify-end gap-2" title={name}>
+        <span className="truncate text-right text-[clamp(1rem,1.7vw,1.45rem)] font-black uppercase leading-none text-white drop-shadow-[0_2px_0_rgba(0,0,0,0.45)]">
+          {code}
+        </span>
+        <TeamFlag slot={slot} />
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex min-w-0 items-center gap-2" title={name}>
+      <TeamFlag slot={slot} />
+      <span className="truncate text-[clamp(1rem,1.7vw,1.45rem)] font-black uppercase leading-none text-mundialGold drop-shadow-[0_2px_0_rgba(0,0,0,0.45)]">
+        {code}
+      </span>
     </div>
   );
 }
 
-function MatchBox({ match, qualifiedSlots }: { match: BracketMatch; qualifiedSlots: Map<string, string> }) {
+function TieRow({ tie, slotTeams, side }: { tie: RoundOf32Tie; slotTeams: Map<string, SlotTeam>; side: "left" | "right" }) {
+  const home = resolveSlot(tie.homeCode, slotTeams);
+  const away = resolveSlot(tie.awayCode, slotTeams);
+
   return (
-    <article className="flex flex-col items-center gap-1" aria-label={`Partido ${match.id}`}>
-      {match.slots.map((slot) => {
-        const resolvedSlot = resolveSlot(slot, qualifiedSlots);
-        return <SlotBox key={`${match.id}-${slot.code}`} slot={resolvedSlot} />;
-      })}
+    <article className="relative grid h-[3.45rem] grid-cols-[minmax(0,1fr)_2.2rem_minmax(0,1fr)] items-center gap-2 rounded-[0.45rem] border border-mundialGold/30 bg-[#101414]/95 px-2 shadow-[0_12px_24px_rgba(0,0,0,0.26),inset_0_0_0_1px_rgba(255,255,255,0.04)]">
+      <span
+        aria-hidden="true"
+        className={`absolute top-1/2 h-px w-6 bg-mundialGold/70 ${side === "left" ? "right-[-1.5rem]" : "left-[-1.5rem]"}`}
+      />
+      <TeamSide slot={home} />
+      <span className="text-center text-[0.62rem] font-black uppercase text-white/78">vs</span>
+      <TeamSide slot={away} align="right" />
     </article>
   );
 }
 
-function BracketColumn({ label, matches, qualifiedSlots }: { label: string; matches: BracketMatch[]; qualifiedSlots: Map<string, string> }) {
+function TieList({ ties, slotTeams, side }: { ties: RoundOf32Tie[]; slotTeams: Map<string, SlotTeam>; side: "left" | "right" }) {
   return (
-    <div className="flex h-full min-w-0 flex-col">
-      <p className="mb-2 text-center text-[10px] font-black uppercase text-mundialGold/70">{label}</p>
-      <div className="flex min-h-0 flex-1 flex-col items-center justify-around">
-        {matches.map((match) => (
-          <MatchBox key={match.id} match={match} qualifiedSlots={qualifiedSlots} />
-        ))}
-      </div>
+    <div className="relative space-y-3">
+      <span
+        aria-hidden="true"
+        className={`absolute bottom-7 top-7 w-px bg-mundialGold/25 ${side === "left" ? "right-[-1.5rem]" : "left-[-1.5rem]"}`}
+      />
+      {ties.map((tie) => (
+        <TieRow key={tie.id} tie={tie} slotTeams={slotTeams} side={side} />
+      ))}
     </div>
   );
 }
 
-function FinalColumn({ qualifiedSlots }: { qualifiedSlots: Map<string, string> }) {
+function CenterTrophy() {
   return (
-    <div className="flex h-full min-w-0 flex-col items-center justify-center gap-5">
-      <img
-        src={trophyImage}
-        alt="Trofeo de la Copa Mundial"
-        className="h-48 w-auto object-contain drop-shadow-[0_18px_28px_rgba(245,188,66,0.32)]"
-        draggable={false}
-      />
-      <div>
-        <p className="mb-2 text-center text-[10px] font-black uppercase text-mundialGold">Final</p>
-        <MatchBox match={finalMatch} qualifiedSlots={qualifiedSlots} />
+    <div className="flex min-w-0 flex-col items-center justify-center gap-4">
+      <div className="rounded-[0.65rem] bg-mundialGold px-8 py-3 text-center text-3xl font-black uppercase leading-none text-black shadow-[0_12px_24px_rgba(245,188,66,0.28)]">
+        16vos confirmados
       </div>
+      <div className="relative flex h-[21rem] w-full max-w-[16rem] items-center justify-center overflow-hidden rounded-[1.2rem] border border-mundialGold/45 bg-[radial-gradient(circle_at_50%_38%,rgba(245,188,66,0.46),rgba(18,18,15,0.94)_62%)] shadow-[0_0_40px_rgba(245,188,66,0.18)]">
+        <img
+          src={trophyImage}
+          alt="Trofeo de la Copa Mundial"
+          className="h-[18.5rem] w-auto object-contain drop-shadow-[0_18px_30px_rgba(245,188,66,0.34)]"
+          draggable={false}
+        />
+      </div>
+      <p className="text-center text-sm font-black uppercase text-mundialGold">Dorado: confirmados</p>
     </div>
   );
 }
 
 export default function KnockoutStage({ matches }: KnockoutStageProps) {
-  const qualifiedSlots = buildQualifiedSlots(matches);
+  const slotTeams = buildSlotTeams(matches);
 
   return (
-    <div className="relative z-10 overflow-hidden rounded-lg border border-mundialGold/15 bg-black px-2 py-4 shadow-[0_0_40px_rgba(0,0,0,0.36)] sm:px-4 sm:py-5">
-      <div className="mb-5 text-center">
+    <div className="relative z-10 overflow-hidden rounded-lg border border-mundialGold/20 bg-[#050807] px-3 py-4 shadow-[0_0_40px_rgba(0,0,0,0.4)] sm:px-5 sm:py-5">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_10%,rgba(0,208,190,0.16),transparent_25rem),radial-gradient(circle_at_80%_70%,rgba(48,79,255,0.15),transparent_22rem)]" />
+      <div className="pointer-events-none absolute inset-0 opacity-18 [background-image:linear-gradient(rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.08)_1px,transparent_1px)] [background-size:26px_26px]" />
+
+      <div className="relative z-10 mb-5 text-center">
         <p className="text-xs font-black uppercase text-mundialGold">Copa Mundial 2026</p>
-        <h3 className="mt-1 text-3xl font-black uppercase leading-none text-white sm:text-4xl">World Cup Bracket</h3>
+        <h3 className="mt-1 text-3xl font-black uppercase leading-none text-white sm:text-4xl">Knockout stage</h3>
       </div>
 
-      <div className="overflow-x-auto pb-2">
-        <div className="grid h-[clamp(36rem,58vw,46rem)] min-w-[960px] grid-cols-[minmax(4.8rem,1.08fr)_minmax(4.35rem,0.88fr)_minmax(4.35rem,0.72fr)_minmax(4.35rem,0.62fr)_minmax(10rem,1.55fr)_minmax(4.35rem,0.62fr)_minmax(4.35rem,0.72fr)_minmax(4.35rem,0.88fr)_minmax(4.8rem,1.08fr)] gap-4">
-          <BracketColumn label="32" matches={leftRoundOf32} qualifiedSlots={qualifiedSlots} />
-          <BracketColumn label="16" matches={leftRoundOf16} qualifiedSlots={qualifiedSlots} />
-          <BracketColumn label="8" matches={leftQuarterFinals} qualifiedSlots={qualifiedSlots} />
-          <BracketColumn label="4" matches={leftSemiFinal} qualifiedSlots={qualifiedSlots} />
-          <FinalColumn qualifiedSlots={qualifiedSlots} />
-          <BracketColumn label="4" matches={rightSemiFinal} qualifiedSlots={qualifiedSlots} />
-          <BracketColumn label="8" matches={rightQuarterFinals} qualifiedSlots={qualifiedSlots} />
-          <BracketColumn label="16" matches={rightRoundOf16} qualifiedSlots={qualifiedSlots} />
-          <BracketColumn label="32" matches={rightRoundOf32} qualifiedSlots={qualifiedSlots} />
+      <div className="relative z-10 overflow-x-auto pb-2">
+        <div className="grid min-h-[43rem] min-w-[1080px] grid-cols-[minmax(0,1fr)_minmax(16rem,0.72fr)_minmax(0,1fr)] items-center gap-10 rounded-[0.8rem] border border-white/10 bg-black/28 p-5">
+          <TieList ties={leftTies} slotTeams={slotTeams} side="left" />
+          <CenterTrophy />
+          <TieList ties={rightTies} slotTeams={slotTeams} side="right" />
         </div>
       </div>
     </div>
