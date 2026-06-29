@@ -22,38 +22,83 @@ interface SlotTeam {
   flag?: string;
 }
 
-interface RoundOf32Tie {
-  id: number;
-  homeCode: string;
-  awayCode: string;
+interface BracketNode {
+  id: string;
+  column: number;
+  row: number;
+  slots: [string, string];
+  label?: string;
 }
 
-interface ProgressionColumnProps {
-  count: number;
-  label: string;
+interface ConnectorPairProps {
+  column: number;
+  fromRows: [number, number];
+  toRow: number;
   side: "left" | "right";
 }
 
-const leftTies: RoundOf32Tie[] = [
-  { id: 74, homeCode: "1E", awayCode: "3D" },
-  { id: 77, homeCode: "1I", awayCode: "3F" },
-  { id: 73, homeCode: "2A", awayCode: "2B" },
-  { id: 75, homeCode: "1F", awayCode: "2C" },
-  { id: 83, homeCode: "2K", awayCode: "2L" },
-  { id: 84, homeCode: "1H", awayCode: "2J" },
-  { id: 81, homeCode: "1D", awayCode: "3B" },
-  { id: 82, homeCode: "1G", awayCode: "3I" }
+interface ConnectorSingleProps {
+  column: number;
+  row: number;
+}
+
+const gridColumns =
+  "minmax(0,1.28fr) minmax(0,0.18fr) minmax(0,0.78fr) minmax(0,0.16fr) minmax(0,0.62fr) minmax(0,0.14fr) minmax(0,0.5fr) minmax(0,0.12fr) minmax(0,0.68fr) minmax(0,0.12fr) minmax(0,0.5fr) minmax(0,0.14fr) minmax(0,0.62fr) minmax(0,0.16fr) minmax(0,0.78fr) minmax(0,0.18fr) minmax(0,1.28fr)";
+
+const bracketNodes: BracketNode[] = [
+  { id: "74", column: 1, row: 1, slots: ["1E", "3D"] },
+  { id: "77", column: 1, row: 3, slots: ["1I", "3F"] },
+  { id: "73", column: 1, row: 5, slots: ["2A", "2B"] },
+  { id: "75", column: 1, row: 7, slots: ["1F", "2C"] },
+  { id: "83", column: 1, row: 9, slots: ["2K", "2L"] },
+  { id: "84", column: 1, row: 11, slots: ["1H", "2J"] },
+  { id: "81", column: 1, row: 13, slots: ["1D", "3B"] },
+  { id: "82", column: 1, row: 15, slots: ["1G", "3I"] },
+  { id: "89", column: 3, row: 2, slots: ["G74", "G77"] },
+  { id: "90", column: 3, row: 6, slots: ["G73", "G75"] },
+  { id: "93", column: 3, row: 10, slots: ["G83", "G84"] },
+  { id: "94", column: 3, row: 14, slots: ["G81", "G82"] },
+  { id: "97", column: 5, row: 4, slots: ["G89", "G90"] },
+  { id: "98", column: 5, row: 12, slots: ["G93", "G94"] },
+  { id: "101", column: 7, row: 8, slots: ["G97", "G98"] },
+  { id: "104", column: 9, row: 8, slots: ["G101", "G102"], label: "Final" },
+  { id: "102", column: 11, row: 8, slots: ["G99", "G100"] },
+  { id: "99", column: 13, row: 4, slots: ["G91", "G92"] },
+  { id: "100", column: 13, row: 12, slots: ["G95", "G96"] },
+  { id: "91", column: 15, row: 2, slots: ["G76", "G78"] },
+  { id: "92", column: 15, row: 6, slots: ["G79", "G80"] },
+  { id: "95", column: 15, row: 10, slots: ["G86", "G88"] },
+  { id: "96", column: 15, row: 14, slots: ["G85", "G87"] },
+  { id: "76", column: 17, row: 1, slots: ["1C", "2F"] },
+  { id: "78", column: 17, row: 3, slots: ["2E", "2I"] },
+  { id: "79", column: 17, row: 5, slots: ["1A", "3E"] },
+  { id: "80", column: 17, row: 7, slots: ["1L", "3K"] },
+  { id: "86", column: 17, row: 9, slots: ["1J", "2H"] },
+  { id: "88", column: 17, row: 11, slots: ["2D", "2G"] },
+  { id: "85", column: 17, row: 13, slots: ["1B", "3J"] },
+  { id: "87", column: 17, row: 15, slots: ["1K", "3L"] }
 ];
 
-const rightTies: RoundOf32Tie[] = [
-  { id: 76, homeCode: "1C", awayCode: "2F" },
-  { id: 78, homeCode: "2E", awayCode: "2I" },
-  { id: 79, homeCode: "1A", awayCode: "3E" },
-  { id: 80, homeCode: "1L", awayCode: "3K" },
-  { id: 86, homeCode: "1J", awayCode: "2H" },
-  { id: 88, homeCode: "2D", awayCode: "2G" },
-  { id: 85, homeCode: "1B", awayCode: "3J" },
-  { id: 87, homeCode: "1K", awayCode: "3L" }
+const connectorPairs: ConnectorPairProps[] = [
+  { column: 2, fromRows: [1, 3], toRow: 2, side: "left" },
+  { column: 2, fromRows: [5, 7], toRow: 6, side: "left" },
+  { column: 2, fromRows: [9, 11], toRow: 10, side: "left" },
+  { column: 2, fromRows: [13, 15], toRow: 14, side: "left" },
+  { column: 4, fromRows: [2, 6], toRow: 4, side: "left" },
+  { column: 4, fromRows: [10, 14], toRow: 12, side: "left" },
+  { column: 6, fromRows: [4, 12], toRow: 8, side: "left" },
+  { column: 12, fromRows: [4, 12], toRow: 8, side: "right" },
+  { column: 14, fromRows: [2, 6], toRow: 4, side: "right" },
+  { column: 14, fromRows: [10, 14], toRow: 12, side: "right" },
+  { column: 16, fromRows: [1, 3], toRow: 2, side: "right" },
+  { column: 16, fromRows: [5, 7], toRow: 6, side: "right" },
+  { column: 16, fromRows: [9, 11], toRow: 10, side: "right" },
+  { column: 16, fromRows: [13, 15], toRow: 14, side: "right" }
+];
+
+const connectorSingles: ConnectorSingleProps[] = [
+  { column: 8, row: 8 },
+  { column: 10, row: 8 }
 ];
 
 const teamCodes: Record<string, string> = {
@@ -86,9 +131,13 @@ const teamCodes: Record<string, string> = {
   australia: "AUS",
   egipto: "EGI",
   suiza: "SUI",
-  argelia: "ARG",
+  argelia: "ALG",
   colombia: "COL",
   ghana: "GHA"
+};
+
+const knownAdvancedTeams: Record<string, string> = {
+  G73: "CanadÃ¡"
 };
 
 function normalizeTeamName(value: string) {
@@ -125,6 +174,25 @@ function addResult(team: TeamStanding, goalsFor: number, goalsAgainst: number) {
   } else if (goalsFor === goalsAgainst) {
     team.points += 1;
   }
+}
+
+function buildTeamDirectory(matches: Match[]) {
+  const teams = new Map<string, SlotTeam>();
+
+  for (const match of matches) {
+    teams.set(normalizeTeamName(match.equipoLocal), {
+      code: normalizeTeamName(match.equipoLocal),
+      team: match.equipoLocal,
+      flag: match.banderaLocal
+    });
+    teams.set(normalizeTeamName(match.equipoVisitante), {
+      code: normalizeTeamName(match.equipoVisitante),
+      team: match.equipoVisitante,
+      flag: match.banderaVisitante
+    });
+  }
+
+  return teams;
 }
 
 function buildSlotTeams(matches: Match[]) {
@@ -179,173 +247,251 @@ function buildSlotTeams(matches: Match[]) {
   return slotTeams;
 }
 
-function resolveSlot(code: string, slotTeams: Map<string, SlotTeam>): SlotTeam {
+function buildAdvancedSlots(matches: Match[], teamDirectory: Map<string, SlotTeam>) {
+  const advancedSlots = new Map<string, SlotTeam>();
+
+  for (const match of matches.filter((item) => item.fase !== "Fase de grupos")) {
+    if (typeof match.resultadoLocal !== "number" || typeof match.resultadoVisitante !== "number") {
+      continue;
+    }
+
+    if (match.resultadoLocal === match.resultadoVisitante) {
+      continue;
+    }
+
+    const winner = match.resultadoLocal > match.resultadoVisitante ? match.equipoLocal : match.equipoVisitante;
+    const winnerFlag = match.resultadoLocal > match.resultadoVisitante ? match.banderaLocal : match.banderaVisitante;
+    advancedSlots.set(`G${match.id}`, {
+      code: `G${match.id}`,
+      team: winner,
+      flag: winnerFlag
+    });
+  }
+
+  for (const [code, team] of Object.entries(knownAdvancedTeams)) {
+    if (advancedSlots.has(code)) {
+      continue;
+    }
+
+    const knownTeam = teamDirectory.get(normalizeTeamName(team));
+    advancedSlots.set(code, {
+      code,
+      team: knownTeam?.team ?? team,
+      flag: knownTeam?.flag
+    });
+  }
+
+  return advancedSlots;
+}
+
+function resolveSlot(code: string, slotTeams: Map<string, SlotTeam>, advancedSlots: Map<string, SlotTeam>): SlotTeam {
+  if (code.startsWith("G")) {
+    return advancedSlots.get(code) ?? { code };
+  }
+
   return slotTeams.get(code) ?? { code };
 }
 
 function displayCode(slot: SlotTeam) {
-  if (!slot.team) return slot.code;
+  if (!slot.team) return "";
   return teamCodes[normalizeTeamName(slot.team)] ?? slot.team.slice(0, 3).toUpperCase();
+}
+
+function connectorCenter(row: number, start: number, span: number) {
+  return `${(((row - start) + 0.5) / span) * 100}%`;
+}
+
+function PatternBackdrop() {
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden bg-[#030403]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_10%,rgba(231,43,45,0.16),transparent_18rem),radial-gradient(circle_at_82%_16%,rgba(0,168,107,0.14),transparent_17rem),radial-gradient(circle_at_50%_110%,rgba(22,77,229,0.18),transparent_24rem)]" />
+      <span className="absolute -left-20 top-4 select-none text-[clamp(12rem,22vw,23rem)] font-black leading-none text-white/[0.035]">26</span>
+      <span className="absolute left-[32%] -top-24 select-none text-[clamp(13rem,24vw,25rem)] font-black leading-none text-white/[0.026]">26</span>
+      <span className="absolute -right-8 bottom-[-6rem] select-none text-[clamp(13rem,23vw,24rem)] font-black leading-none text-white/[0.03]">26</span>
+      <div className="absolute left-[-9rem] top-[-7rem] h-[22rem] w-[29rem] rotate-[-8deg] rounded-[5rem] border-[2.8rem] border-white/[0.032]" />
+      <div className="absolute right-[-10rem] top-[4rem] h-[24rem] w-[30rem] rotate-[12deg] rounded-[5rem] border-[3rem] border-white/[0.03]" />
+      <div className="absolute bottom-[-11rem] left-[27%] h-[22rem] w-[35rem] rotate-[-4deg] rounded-[5rem] border-[2.4rem] border-white/[0.024]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:32px_32px] opacity-[0.14]" />
+      <div className="absolute inset-0 bg-black/60" />
+    </div>
+  );
 }
 
 function TeamFlag({ slot }: { slot: SlotTeam }) {
   const flagImage = slot.team ? getFlagImageUrl(slot.team) : null;
 
   return (
-    <span className="flex h-9 w-12 shrink-0 items-center justify-center overflow-hidden rounded-[0.28rem] border border-white/25 bg-white/10 shadow-[0_0_0_1px_rgba(0,0,0,0.35)]">
+    <span className="flex h-[clamp(0.82rem,1.6vw,1.28rem)] w-[clamp(1.2rem,2.3vw,1.86rem)] shrink-0 items-center justify-center overflow-hidden rounded-[0.16rem] border border-white/20 bg-white/8 shadow-[0_0_0_1px_rgba(0,0,0,0.35)]">
       {flagImage ? (
         <img src={flagImage} alt={`Bandera de ${slot.team}`} className="h-full w-full object-cover" draggable={false} />
       ) : (
-        <span className="text-lg">{slot.flag ?? ""}</span>
+        <span className="text-[0.7rem]">{slot.flag ?? ""}</span>
       )}
     </span>
   );
 }
 
-function TeamSide({ slot, align = "left" }: { slot: SlotTeam; align?: "left" | "right" }) {
+function SlotRow({ slot, align }: { slot: SlotTeam; align: "left" | "right" }) {
   const code = displayCode(slot);
-  const name = slot.team ?? slot.code;
-
-  if (align === "right") {
-    return (
-      <div className="flex min-w-0 items-center justify-end gap-2" title={name}>
-        <span className="truncate text-right text-[clamp(1rem,1.7vw,1.45rem)] font-black uppercase leading-none text-white drop-shadow-[0_2px_0_rgba(0,0,0,0.45)]">
-          {code}
-        </span>
-        <TeamFlag slot={slot} />
-      </div>
-    );
-  }
+  const isTeam = Boolean(slot.team);
 
   return (
-    <div className="flex min-w-0 items-center gap-2" title={name}>
-      <TeamFlag slot={slot} />
-      <span className="truncate text-[clamp(1rem,1.7vw,1.45rem)] font-black uppercase leading-none text-mundialGold drop-shadow-[0_2px_0_rgba(0,0,0,0.45)]">
-        {code}
-      </span>
-    </div>
-  );
-}
-
-function PatternBackdrop() {
-  return (
-    <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden bg-[#030403]">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(255,255,255,0.08),transparent_21rem),radial-gradient(circle_at_12%_82%,rgba(255,255,255,0.045),transparent_23rem),radial-gradient(circle_at_88%_76%,rgba(255,255,255,0.04),transparent_20rem)]" />
-      <span className="absolute -left-16 top-8 select-none text-[22rem] font-black leading-none text-white/[0.035]">26</span>
-      <span className="absolute left-[30%] -top-20 select-none text-[25rem] font-black leading-none text-white/[0.03]">26</span>
-      <span className="absolute -right-10 bottom-[-6rem] select-none text-[24rem] font-black leading-none text-white/[0.032]">26</span>
-      <div className="absolute left-[-7rem] top-[-5rem] h-[22rem] w-[27rem] rotate-[-8deg] rounded-[5rem] border-[2.8rem] border-white/[0.035]" />
-      <div className="absolute right-[-9rem] top-[5rem] h-[24rem] w-[30rem] rotate-[12deg] rounded-[5rem] border-[3.1rem] border-white/[0.03]" />
-      <div className="absolute bottom-[-9rem] left-[28%] h-[22rem] w-[34rem] rotate-[-4deg] rounded-[5rem] border-[2.4rem] border-white/[0.026]" />
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:34px_34px] opacity-[0.18]" />
-      <div className="absolute inset-0 bg-black/62" />
-    </div>
-  );
-}
-
-function TieRow({ tie, slotTeams, side }: { tie: RoundOf32Tie; slotTeams: Map<string, SlotTeam>; side: "left" | "right" }) {
-  const home = resolveSlot(tie.homeCode, slotTeams);
-  const away = resolveSlot(tie.awayCode, slotTeams);
-
-  return (
-    <article className="relative grid h-[3.45rem] grid-cols-[minmax(0,1fr)_2.2rem_minmax(0,1fr)] items-center gap-2 rounded-[0.45rem] border border-mundialGold/30 bg-[#101414]/95 px-2 shadow-[0_12px_24px_rgba(0,0,0,0.26),inset_0_0_0_1px_rgba(255,255,255,0.04)]">
+    <div
+      title={slot.team ?? slot.code}
+      className={`flex min-w-0 items-center gap-1.5 ${align === "right" ? "justify-end text-right" : ""}`}
+    >
+      {align === "left" && <TeamFlag slot={slot} />}
       <span
-        aria-hidden="true"
-        className={`absolute top-1/2 h-px w-6 bg-mundialGold/70 ${side === "left" ? "right-[-1.5rem]" : "left-[-1.5rem]"}`}
-      />
-      <TeamSide slot={home} />
-      <span className="text-center text-[0.62rem] font-black uppercase text-white/78">vs</span>
-      <TeamSide slot={away} align="right" />
+        className={`min-w-0 truncate text-[clamp(0.56rem,0.78vw,0.86rem)] font-black uppercase leading-none tracking-normal ${
+          isTeam ? "text-mundialGold" : "text-white/22"
+        }`}
+      >
+        {code || slot.code}
+      </span>
+      {align === "right" && <TeamFlag slot={slot} />}
+    </div>
+  );
+}
+
+function BracketMatchBox({
+  node,
+  slotTeams,
+  advancedSlots
+}: {
+  node: BracketNode;
+  slotTeams: Map<string, SlotTeam>;
+  advancedSlots: Map<string, SlotTeam>;
+}) {
+  const [homeCode, awayCode] = node.slots;
+  const home = resolveSlot(homeCode, slotTeams, advancedSlots);
+  const away = resolveSlot(awayCode, slotTeams, advancedSlots);
+  const isFinal = node.id === "104";
+  const align = node.column > 9 ? "right" : "left";
+
+  return (
+    <article
+      aria-label={node.label ?? `Partido ${node.id}`}
+      className={`relative z-10 self-center rounded-[0.32rem] border bg-black/68 px-1.5 py-1 shadow-[0_10px_18px_rgba(0,0,0,0.26),inset_0_0_0_1px_rgba(255,255,255,0.045)] ${
+        isFinal ? "border-mundialGold/56" : "border-mundialGold/28"
+      }`}
+      style={{ gridColumn: node.column, gridRow: `${node.row} / span 1` }}
+    >
+      {isFinal && (
+        <img
+          src={trophyImage}
+          alt=""
+          aria-hidden="true"
+          className="pointer-events-none absolute left-1/2 top-1/2 h-12 w-auto -translate-x-1/2 -translate-y-1/2 opacity-20"
+          draggable={false}
+        />
+      )}
+      <div className="relative z-10 grid gap-1">
+        {isFinal && <p className="text-center text-[0.48rem] font-black uppercase leading-none text-mundialGold">Final</p>}
+        <SlotRow slot={home} align={isFinal ? "left" : align} />
+        <SlotRow slot={away} align={isFinal ? "right" : align} />
+      </div>
     </article>
   );
 }
 
-function TieList({ ties, slotTeams, side }: { ties: RoundOf32Tie[]; slotTeams: Map<string, SlotTeam>; side: "left" | "right" }) {
+function ConnectorPair({ column, fromRows, toRow, side }: ConnectorPairProps) {
+  const start = Math.min(...fromRows, toRow);
+  const end = Math.max(...fromRows, toRow);
+  const span = end - start + 1;
+  const [firstRow, secondRow] = [...fromRows].sort((a, b) => a - b) as [number, number];
+  const first = connectorCenter(firstRow, start, span);
+  const second = connectorCenter(secondRow, start, span);
+  const target = connectorCenter(toRow, start, span);
+  const sourceLine = side === "left" ? "left-0 right-1/2" : "left-1/2 right-0";
+  const targetLine = side === "left" ? "left-1/2 right-0" : "left-0 right-1/2";
+
   return (
-    <div className="relative flex h-full flex-col justify-around">
-      <span
-        aria-hidden="true"
-        className={`absolute bottom-7 top-7 w-px bg-mundialGold/25 ${side === "left" ? "right-[-1.5rem]" : "left-[-1.5rem]"}`}
-      />
-      {ties.map((tie) => (
-        <TieRow key={tie.id} tie={tie} slotTeams={slotTeams} side={side} />
+    <div
+      aria-hidden="true"
+      className="relative z-0"
+      style={{ gridColumn: column, gridRow: `${start} / ${end + 1}` }}
+    >
+      <span className="absolute left-1/2 w-px -translate-x-1/2 bg-mundialGold/44" style={{ top: first, bottom: `calc(100% - ${second})` }} />
+      {fromRows.map((row) => (
+        <span
+          key={`${column}-${row}`}
+          className={`absolute h-px bg-mundialGold/44 ${sourceLine}`}
+          style={{ top: connectorCenter(row, start, span) }}
+        />
+      ))}
+      <span className={`absolute h-px bg-mundialGold/54 ${targetLine}`} style={{ top: target }} />
+    </div>
+  );
+}
+
+function ConnectorSingle({ column, row }: ConnectorSingleProps) {
+  return (
+    <div aria-hidden="true" className="relative z-0" style={{ gridColumn: column, gridRow: `${row} / span 1` }}>
+      <span className="absolute left-0 right-0 top-1/2 h-px -translate-y-1/2 bg-mundialGold/56" />
+    </div>
+  );
+}
+
+function RoundLabels() {
+  const labels = [
+    { text: "16avos", column: 1 },
+    { text: "Octavos", column: 3 },
+    { text: "Cuartos", column: 5 },
+    { text: "Semis", column: 7 },
+    { text: "Final", column: 9 },
+    { text: "Semis", column: 11 },
+    { text: "Cuartos", column: 13 },
+    { text: "Octavos", column: 15 },
+    { text: "16avos", column: 17 }
+  ];
+
+  return (
+    <div className="grid w-full items-end gap-x-1 px-1" style={{ gridTemplateColumns: gridColumns }}>
+      {labels.map((label) => (
+        <p
+          key={`${label.text}-${label.column}`}
+          className="truncate text-center text-[clamp(0.48rem,0.7vw,0.68rem)] font-black uppercase text-white/48"
+          style={{ gridColumn: label.column }}
+        >
+          {label.text}
+        </p>
       ))}
     </div>
   );
 }
 
-function ProgressionColumn({ count, label, side }: ProgressionColumnProps) {
-  return (
-    <div className="flex h-full min-w-0 flex-col">
-      <p className="mb-3 text-center text-[0.58rem] font-black uppercase tracking-normal text-white/38">{label}</p>
-      <div className="relative flex min-h-0 flex-1 flex-col items-center justify-around">
-        <span
-          aria-hidden="true"
-          className="absolute bottom-8 top-8 left-1/2 w-px -translate-x-1/2 bg-mundialGold/18"
-        />
-        {Array.from({ length: count }).map((_, index) => (
-          <span
-            key={`${label}-${index}`}
-            aria-label={`${label} pendiente ${index + 1}`}
-            className="relative block h-[3.15rem] w-full max-w-[5.5rem] rounded-[0.34rem] border border-mundialGold/24 bg-black/55 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04),0_10px_18px_rgba(0,0,0,0.24)]"
-          >
-            <span
-              aria-hidden="true"
-              className={`absolute top-1/2 h-px w-7 -translate-y-1/2 bg-mundialGold/24 ${side === "left" ? "left-[-1.75rem]" : "right-[-1.75rem]"}`}
-            />
-            <span
-              aria-hidden="true"
-              className={`absolute top-1/2 h-px w-7 -translate-y-1/2 bg-mundialGold/24 ${side === "left" ? "right-[-1.75rem]" : "left-[-1.75rem]"}`}
-            />
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function CenterTrophy() {
-  return (
-    <div className="flex min-w-0 flex-col items-center justify-center gap-4">
-      <div className="rounded-[0.65rem] bg-mundialGold px-8 py-3 text-center text-3xl font-black uppercase leading-none text-black shadow-[0_12px_24px_rgba(245,188,66,0.28)]">
-        16vos confirmados
-      </div>
-      <div className="relative flex h-[21rem] w-full max-w-[16rem] items-center justify-center overflow-hidden rounded-[1.2rem] border border-mundialGold/45 bg-[radial-gradient(circle_at_50%_38%,rgba(245,188,66,0.46),rgba(18,18,15,0.94)_62%)] shadow-[0_0_40px_rgba(245,188,66,0.18)]">
-        <img
-          src={trophyImage}
-          alt="Trofeo de la Copa Mundial"
-          className="h-[18.5rem] w-auto object-contain drop-shadow-[0_18px_30px_rgba(245,188,66,0.34)]"
-          draggable={false}
-        />
-      </div>
-      <p className="text-center text-sm font-black uppercase text-mundialGold">Dorado: confirmados</p>
-    </div>
-  );
-}
-
 export default function KnockoutStage({ matches }: KnockoutStageProps) {
+  const teamDirectory = buildTeamDirectory(matches);
   const slotTeams = buildSlotTeams(matches);
+  const advancedSlots = buildAdvancedSlots(matches, teamDirectory);
 
   return (
-    <div className="relative z-10 overflow-hidden rounded-lg border border-mundialGold/20 bg-[#050807] px-3 py-4 shadow-[0_0_40px_rgba(0,0,0,0.4)] sm:px-5 sm:py-5">
+    <div className="relative z-10 w-full overflow-hidden rounded-lg border border-mundialGold/20 bg-[#050807] p-2 shadow-[0_0_40px_rgba(0,0,0,0.4)] sm:p-3">
       <PatternBackdrop />
 
-      <div className="relative z-10 mb-5 text-center">
-        <p className="text-xs font-black uppercase text-mundialGold">Copa Mundial 2026</p>
-        <h3 className="mt-1 text-3xl font-black uppercase leading-none text-white sm:text-4xl">Knockout stage</h3>
+      <div className="relative z-10 mb-2 text-center">
+        <p className="text-[0.62rem] font-black uppercase text-mundialGold">Copa Mundial 2026</p>
+        <h3 className="mt-0.5 text-[clamp(1.35rem,3vw,2.35rem)] font-black uppercase leading-none text-white">Knockout stage</h3>
       </div>
 
-      <div className="relative z-10 overflow-x-auto pb-2">
-        <div className="grid min-h-[43rem] min-w-[1320px] grid-cols-[minmax(22rem,1.34fr)_minmax(5.2rem,0.36fr)_minmax(5.2rem,0.32fr)_minmax(5.2rem,0.28fr)_minmax(15rem,0.7fr)_minmax(5.2rem,0.28fr)_minmax(5.2rem,0.32fr)_minmax(5.2rem,0.36fr)_minmax(22rem,1.34fr)] items-stretch gap-5 rounded-[0.8rem] border border-white/10 bg-black/30 p-5">
-          <TieList ties={leftTies} slotTeams={slotTeams} side="left" />
-          <ProgressionColumn count={4} label="Octavos" side="left" />
-          <ProgressionColumn count={2} label="Cuartos" side="left" />
-          <ProgressionColumn count={1} label="Semis" side="left" />
-          <CenterTrophy />
-          <ProgressionColumn count={1} label="Semis" side="right" />
-          <ProgressionColumn count={2} label="Cuartos" side="right" />
-          <ProgressionColumn count={4} label="Octavos" side="right" />
-          <TieList ties={rightTies} slotTeams={slotTeams} side="right" />
+      <div className="relative z-10 flex h-[clamp(28rem,calc(100vh-18rem),42rem)] w-full flex-col overflow-hidden rounded-[0.65rem] border border-white/10 bg-black/28 p-2 sm:p-3">
+        <RoundLabels />
+        <div
+          className="relative grid min-h-0 flex-1 items-center gap-x-1"
+          style={{
+            gridTemplateColumns: gridColumns,
+            gridTemplateRows: "repeat(15, minmax(0, 1fr))"
+          }}
+        >
+          {connectorPairs.map((connector) => (
+            <ConnectorPair key={`${connector.column}-${connector.fromRows.join("-")}-${connector.toRow}`} {...connector} />
+          ))}
+          {connectorSingles.map((connector) => (
+            <ConnectorSingle key={`${connector.column}-${connector.row}`} {...connector} />
+          ))}
+          {bracketNodes.map((node) => (
+            <BracketMatchBox key={node.id} node={node} slotTeams={slotTeams} advancedSlots={advancedSlots} />
+          ))}
         </div>
       </div>
     </div>
