@@ -28,6 +28,12 @@ interface RoundOf32Tie {
   awayCode: string;
 }
 
+interface ProgressionColumnProps {
+  count: number;
+  label: string;
+  side: "left" | "right";
+}
+
 const leftTies: RoundOf32Tie[] = [
   { id: 74, homeCode: "1E", awayCode: "3D" },
   { id: 77, homeCode: "1I", awayCode: "3F" },
@@ -221,6 +227,22 @@ function TeamSide({ slot, align = "left" }: { slot: SlotTeam; align?: "left" | "
   );
 }
 
+function PatternBackdrop() {
+  return (
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden bg-[#030403]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(255,255,255,0.08),transparent_21rem),radial-gradient(circle_at_12%_82%,rgba(255,255,255,0.045),transparent_23rem),radial-gradient(circle_at_88%_76%,rgba(255,255,255,0.04),transparent_20rem)]" />
+      <span className="absolute -left-16 top-8 select-none text-[22rem] font-black leading-none text-white/[0.035]">26</span>
+      <span className="absolute left-[30%] -top-20 select-none text-[25rem] font-black leading-none text-white/[0.03]">26</span>
+      <span className="absolute -right-10 bottom-[-6rem] select-none text-[24rem] font-black leading-none text-white/[0.032]">26</span>
+      <div className="absolute left-[-7rem] top-[-5rem] h-[22rem] w-[27rem] rotate-[-8deg] rounded-[5rem] border-[2.8rem] border-white/[0.035]" />
+      <div className="absolute right-[-9rem] top-[5rem] h-[24rem] w-[30rem] rotate-[12deg] rounded-[5rem] border-[3.1rem] border-white/[0.03]" />
+      <div className="absolute bottom-[-9rem] left-[28%] h-[22rem] w-[34rem] rotate-[-4deg] rounded-[5rem] border-[2.4rem] border-white/[0.026]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:34px_34px] opacity-[0.18]" />
+      <div className="absolute inset-0 bg-black/62" />
+    </div>
+  );
+}
+
 function TieRow({ tie, slotTeams, side }: { tie: RoundOf32Tie; slotTeams: Map<string, SlotTeam>; side: "left" | "right" }) {
   const home = resolveSlot(tie.homeCode, slotTeams);
   const away = resolveSlot(tie.awayCode, slotTeams);
@@ -240,7 +262,7 @@ function TieRow({ tie, slotTeams, side }: { tie: RoundOf32Tie; slotTeams: Map<st
 
 function TieList({ ties, slotTeams, side }: { ties: RoundOf32Tie[]; slotTeams: Map<string, SlotTeam>; side: "left" | "right" }) {
   return (
-    <div className="relative space-y-3">
+    <div className="relative flex h-full flex-col justify-around">
       <span
         aria-hidden="true"
         className={`absolute bottom-7 top-7 w-px bg-mundialGold/25 ${side === "left" ? "right-[-1.5rem]" : "left-[-1.5rem]"}`}
@@ -248,6 +270,36 @@ function TieList({ ties, slotTeams, side }: { ties: RoundOf32Tie[]; slotTeams: M
       {ties.map((tie) => (
         <TieRow key={tie.id} tie={tie} slotTeams={slotTeams} side={side} />
       ))}
+    </div>
+  );
+}
+
+function ProgressionColumn({ count, label, side }: ProgressionColumnProps) {
+  return (
+    <div className="flex h-full min-w-0 flex-col">
+      <p className="mb-3 text-center text-[0.58rem] font-black uppercase tracking-normal text-white/38">{label}</p>
+      <div className="relative flex min-h-0 flex-1 flex-col items-center justify-around">
+        <span
+          aria-hidden="true"
+          className="absolute bottom-8 top-8 left-1/2 w-px -translate-x-1/2 bg-mundialGold/18"
+        />
+        {Array.from({ length: count }).map((_, index) => (
+          <span
+            key={`${label}-${index}`}
+            aria-label={`${label} pendiente ${index + 1}`}
+            className="relative block h-[3.15rem] w-full max-w-[5.5rem] rounded-[0.34rem] border border-mundialGold/24 bg-black/55 shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04),0_10px_18px_rgba(0,0,0,0.24)]"
+          >
+            <span
+              aria-hidden="true"
+              className={`absolute top-1/2 h-px w-7 -translate-y-1/2 bg-mundialGold/24 ${side === "left" ? "left-[-1.75rem]" : "right-[-1.75rem]"}`}
+            />
+            <span
+              aria-hidden="true"
+              className={`absolute top-1/2 h-px w-7 -translate-y-1/2 bg-mundialGold/24 ${side === "left" ? "right-[-1.75rem]" : "left-[-1.75rem]"}`}
+            />
+          </span>
+        ))}
+      </div>
     </div>
   );
 }
@@ -276,8 +328,7 @@ export default function KnockoutStage({ matches }: KnockoutStageProps) {
 
   return (
     <div className="relative z-10 overflow-hidden rounded-lg border border-mundialGold/20 bg-[#050807] px-3 py-4 shadow-[0_0_40px_rgba(0,0,0,0.4)] sm:px-5 sm:py-5">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_10%,rgba(0,208,190,0.16),transparent_25rem),radial-gradient(circle_at_80%_70%,rgba(48,79,255,0.15),transparent_22rem)]" />
-      <div className="pointer-events-none absolute inset-0 opacity-18 [background-image:linear-gradient(rgba(255,255,255,.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.08)_1px,transparent_1px)] [background-size:26px_26px]" />
+      <PatternBackdrop />
 
       <div className="relative z-10 mb-5 text-center">
         <p className="text-xs font-black uppercase text-mundialGold">Copa Mundial 2026</p>
@@ -285,9 +336,15 @@ export default function KnockoutStage({ matches }: KnockoutStageProps) {
       </div>
 
       <div className="relative z-10 overflow-x-auto pb-2">
-        <div className="grid min-h-[43rem] min-w-[1080px] grid-cols-[minmax(0,1fr)_minmax(16rem,0.72fr)_minmax(0,1fr)] items-center gap-10 rounded-[0.8rem] border border-white/10 bg-black/28 p-5">
+        <div className="grid min-h-[43rem] min-w-[1320px] grid-cols-[minmax(22rem,1.34fr)_minmax(5.2rem,0.36fr)_minmax(5.2rem,0.32fr)_minmax(5.2rem,0.28fr)_minmax(15rem,0.7fr)_minmax(5.2rem,0.28fr)_minmax(5.2rem,0.32fr)_minmax(5.2rem,0.36fr)_minmax(22rem,1.34fr)] items-stretch gap-5 rounded-[0.8rem] border border-white/10 bg-black/30 p-5">
           <TieList ties={leftTies} slotTeams={slotTeams} side="left" />
+          <ProgressionColumn count={4} label="Octavos" side="left" />
+          <ProgressionColumn count={2} label="Cuartos" side="left" />
+          <ProgressionColumn count={1} label="Semis" side="left" />
           <CenterTrophy />
+          <ProgressionColumn count={1} label="Semis" side="right" />
+          <ProgressionColumn count={2} label="Cuartos" side="right" />
+          <ProgressionColumn count={4} label="Octavos" side="right" />
           <TieList ties={rightTies} slotTeams={slotTeams} side="right" />
         </div>
       </div>
